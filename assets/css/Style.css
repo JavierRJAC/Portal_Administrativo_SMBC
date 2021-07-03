@@ -1,0 +1,68 @@
+/*Login*/
+
+.btnInicio{
+    color: #fff;
+    font-size: 23px;
+    display: inline-block;
+    background-color: #397B34;
+    border-radius: 9px;
+    border: none;
+    padding: 10px 0px;
+}
+
+.btnInicio:hover{
+  background-color:#54b64d;
+}
+
+/*Menu Css*/
+
+/*Menu opciones*/
+span{
+    color: #397B34;
+}
+
+/*boton Agregar*/
+.botonP{
+    color:#fff;
+    background-color:#397B34;
+    margin: 10px;
+    padding:22px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .botonP:hover{
+    background-color:#54b64d;
+  }
+  
+
+  .imgAgregar{
+    width: 45px;
+  }
+
+
+
+  /*Boton Guardar Formularios*/
+  .btn-formularios{
+    display: inline-block;
+    color: #fff;
+    background-color: #397B34;
+    border-radius: 9px;
+    border: none;
+    padding: 10px 25px;
+  }
+
+  .btn-formularios:hover{
+    background-color:#54b64d;
+  }
+
+
+  /*Colores del input para subir imagenes de imagenes*/
+  .imgbb-filepond span{
+    color: #fff;
+  }
+  
+  .imgbb-filepond label span{
+    color:#040202 ;
+  }

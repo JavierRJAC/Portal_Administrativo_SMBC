@@ -1,6 +1,6 @@
-$(document).ready(()=>{    
+$(document).ready(()=>{  
     // Acción de agregar
-    var formAgregar = $("#formAgregar");
+    var formAgregar = $('#formAgregar');
     formAgregar.validetta({
         realTime: true,
         bubblePosition: 'bottom',
@@ -9,16 +9,16 @@ $(document).ready(()=>{
         }
     })
 
-    //DataTable mostrar objetivos
+    // DataTable mostrar objetivos
     $('#odsTable').DataTable({
-        "ajax":{
-                url: url+"objetivos",
-                type: "GET",
+        'ajax':{
+                url: url+'objetivos',
+                type: 'GET',
                 headers: { 'Authorization': key },
             },
-        "columns": [
-            { "data": "titulo" },
-            { "data": "estado" },
+        'columns': [
+            { 'data': 'titulo' },
+            { 'data': 'estado' },
             {
                 render: function (data, type, row) {
                     return '<div class="dropdown">'+
@@ -42,30 +42,28 @@ $(document).ready(()=>{
     $('body').on('click', '.btnEditar', function(){
         var tr = $(this).closest("tr");
         var data = $('#odsTable').DataTable().row(tr).data();
-        $('#id').text(data.id)
-        $('#txtTitulo').val(data.titulo)
-        $('#txtDescripcion').val(data.descripcion)
-        $('#imgIcono').attr('src',data.icono)  
+        $('#mdlEditar #id').text(data.id)
+        $('#mdlEditar .txtTitulo').val(data.titulo)
+        $('#mdlEditar .txtDescripcion').val(data.descripcion)
+        setTimeout(() => {
+            $('.imgIcono').attr("src",(data.icono=='')?'assets/images/iconos/noImg.jpg':data.icono)
+        }, 1000)
     })
 
     // Enviar formulario
-    var formEditar = $("#formEditar");
+    var formEditar = $('#formEditar');
     formEditar.validetta({
         realTime: true,
         bubblePosition: 'bottom',
         onValid: function(e){
             e.preventDefault();            
             let formData = new FormData();
-            let titulo = $('#txtTitulo').val()
-            let descripcion = $('#txtDescripcion').val()
             let id = $('#id').text()
-
-            let datos = [titulo, descripcion, id]
-            let img = $('#fileIcono').prop("files")[0] 
-            console.log(img)
-            
-            formData.append("imagen", img); 
-            formData.append("datos", JSON.stringify(datos)); 
+            let img = $('.fileIcono').prop('files')[0] 
+            let data = datos('#mdlEditar')
+            data.push(id)            
+            formData.append('imagen', img); 
+            formData.append('datos', JSON.stringify(data)); 
 
             $.ajax({
                 type: 'POST',
@@ -79,14 +77,28 @@ $(document).ready(()=>{
                     let msj = (res.data==true)?'El registro ha sido actualizado':'Ha ocurrido un error';
                     $('#odsTable').DataTable().ajax.reload();
                     alerta(msj)
-                    formEditar.trigger("reset"); 
+                    formEditar.trigger('reset'); 
                     $('#mdlEditar').modal('toggle');
                 },
                 error: function(){
-                    console.log("error");
+                    alerta('Ha ocurrido un error')
                 }
             });
         }
     })
+
+    // Cierre de modal
+    $("#mdlEditar").on("hidden.bs.modal", function () {
+        $('.imgIcono').attr("src",'assets/images/iconos/loading.gif')
+    });
+
+    // Usar para agregar también
+    datos = (modal) => {
+        let titulo = $(modal+' .txtTitulo').val().trim()
+        let descripcion = $(modal+' .txtDescripcion').val().trim()
+        let data = [titulo, descripcion]
+
+        return data;
+    }
 
 })

@@ -66,3 +66,53 @@ span{
   .imgbb-filepond label span{
     color:#040202 ;
   }
+  /* Loader iFrame Videos */
+  .iVideo{
+    background-repeat:no-repeat;
+    background-position:center;
+    height:400px;
+    background-image:url('../images/iconos/loading_video.gif')
+  }
+
+  /* Tabs de inscripción */
+  #formInscripcion h4, div{
+    color: #397B34;
+  }
+
+  #formInscripcion h5{
+    color: #444444;
+  }
+
+  /* Loader */
+  #app{
+    display: none;
+  }
+
+  .loader{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #2B2B2B;
+    position: absolute;
+  }
+
+  .loader>div{
+    height: 100px;
+    width: 100px;
+    border: 15px solid #9CBC95;
+    border-top-color: #397B34;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    animation: spin 1.5s infinite linear;
+  }
+
+  @keyframes spin {
+    100%{
+      transform: rotate(360deg);
+    }
+  }

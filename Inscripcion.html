@@ -20,12 +20,16 @@
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
     <!--Validetta-->
     <link rel="stylesheet" href="assets/lib/validetta/validetta.min.css">
+    <!-- Toastify -->
+    <link rel="stylesheet" href="assets/vendors/toastify/toastify.css">
 </head>
 
 <body>
+    <div class="loader">
+        <div></div>
+    </div>
     <div id="app">
-
-          <!---Nenu-------------------------------------------------------------------->
+        <!---Nenu-------------------------------------------------------------------->
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
@@ -37,14 +41,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="col-lg-12 text-center logo">
-                            <img src="assets/images/logo/logo.png" class="mb-2" alt="Logo" >
+                            <img src="assets/images/logo/logo.png" class="mb-2" alt="Logo">
                             <h4 style="color:#397B34;">SMBC</h4>
                         </div>
                     </div>
-                    
+
 
                 </div>
-                
+
                 <div class="sidebar-menu">
 
                     <ul class="menu">
@@ -92,7 +96,7 @@
                         </li>
 
                         <li class="sidebar-item active">
-                            <a href="Inscripcion.html" class='sidebar-link'>
+                            <a href="inscripcion.html" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Inscripción</span>
                             </a>
@@ -106,12 +110,11 @@
                         </li>
 
                         <li class="sidebar-item mb-2 ">
-                            <a href="#" class='sidebar-link'>
+                            <a href="#" id="btnSalir" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Salir</span>
                             </a>
                         </li>
-
 
                     </ul>
                 </div>
@@ -127,402 +130,261 @@
             </header>
 
 
-        <!---Contenido Pagina-------------------------------------------------------------------->
+            <!---Contenido Pagina-------------------------------------------------------------------->
             <div class="page-content">
 
-        <!---Tema y boton Agregar-------------------------------------------------------------------->
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-11 col-md-11 col-ms-11">
+                <!---Tema y boton Agregar-------------------------------------------------------------------->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-11 col-md-11 col-ms-11">
 
-                <div class="row">
+                        <div class="row">
 
-                    <div class="col-lg-12 col-md-12 col-12 d-flex align-items-center mt-1 p-4">
-                    <h3 style="margin-left:2px;">Inscripción al Congreso</h3>
+                            <div class="col-lg-12 col-md-12 col-12 d-flex align-items-center mt-1 p-4">
+                                <h3 style="margin-left:2px;">Inscripción al Congreso</h3>
+                            </div>
+
+                        </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
 
-            <!--Horizontal Navs------------------------------------------------------------------------------------->
+                <!--Horizontal Navs------------------------------------------------------------------------------------->
 
 
-            <div class="row d-flex justify-content-center mt-3">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-    
-                    <div class="row d-flex justify-content-center">
-    
-                        <div class="col-lg-11 col-md-11 col-11 card ">
-    
-                            <div class="card-body">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" id="regular-tab" data-bs-toggle="tab" href="#regular"
-                                            role="tab" aria-controls="regular" aria-selected="true">Regular</a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="diaEvento-tab" data-bs-toggle="tab" href="#diaEvento"
-                                            role="tab" aria-controls="diaEvento" aria-selected="false">Día del Evento</a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="residentes-tab" data-bs-toggle="tab" href="#residentes"
-                                            role="tab" aria-controls="residentes" aria-selected="false">Residentes</a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="noResidentes-tab" data-bs-toggle="tab" href="#noResidentes"
-                                            role="tab" aria-controls="noResidentes" aria-selected="false">No Residentes</a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="alterna-tab" data-bs-toggle="tab" href="#alterna"
-                                            role="tab" aria-controls="alterna" aria-selected="false">Alterna</a>
-                                    </li>
-                                </ul>
-                                <!--Formulario------------------------------------------------------------------------------->
-                                <form action="#" method="POST" id="formInscripcion" enctype="multipart/form-data">
+                <div class="row d-flex justify-content-center mt-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
 
-                                <div class="tab-content" id="myTabContent">
+                        <div class="row d-flex justify-content-center">
 
-                                    <!--Inscripción Regular-------------------------------------------------->
-                                    <div class="tab-pane fade show active" id="regular" role="tabpanel"
-                                        aria-labelledby="regular-tab">
+                            <div class="col-lg-11 col-md-11 col-11 card ">
 
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h3 style="color:#397B34;"><b>Inscripción Regular</b></h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h4 style="color: black;"><b>Fecha</b></h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="row d-flex justify-content-center">
-                                            <div class="col-lg-7 col-md-7 col-12">
-                                                <input type="date" name="fechaInsRegular" class="form-control" data-validetta="required,maxLength[255]">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-4">
-                                            <div class="col-6 text-center">
-                                                <h4 style="color:#397B34;"><b>Estudiantes</b></h4>
-                                            </div>
-                                            <div class="col-6 text-center">
-                                                <h4 style="color:#397B34;"><b>Profesionales</b></h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h4 style="color: black;"><b>Precio Miembros</b></h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <input type="text" name="precioMER" class="form-control" data-validetta="required,maxLength[255]">
+                                <div class="card-body">
+                                    <!--Formulario------------------------------------------------------------------------------->
+                                    <form action="#" method="POST" id="formInscripcion" enctype="multipart/form-data">
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link active" id="regular-tab" data-bs-toggle="tab"
+                                                    href="#regular" role="tab" aria-controls="regular"
+                                                    aria-selected="true">Regular</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="diaEvento-tab" data-bs-toggle="tab"
+                                                    href="#diaEvento" role="tab" aria-controls="diaEvento"
+                                                    aria-selected="false">Día del Evento</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="residentes-tab" data-bs-toggle="tab"
+                                                    href="#residentes" role="tab" aria-controls="residentes"
+                                                    aria-selected="false">Residentes</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="noResidentes-tab" data-bs-toggle="tab"
+                                                    href="#noResidentes" role="tab" aria-controls="noResidentes"
+                                                    aria-selected="false">No Residentes</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="alterna-tab" data-bs-toggle="tab" href="#alterna"
+                                                    role="tab" aria-controls="alterna" aria-selected="false">Alterna</a>
+                                            </li>
+                                        </ul> 
+                                        <div class="tab-content" id="myTabContent">
+                                            <!--Inscripción Regular-------------------------------------------------->
+                                            <div class="tab-pane fade show active" id="regular" role="tabpanel"
+                                                aria-labelledby="regular-tab">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h4 class="mt-4"><b>Inscripción Regular</b></h4>
+                                                    </div>
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h5><b>Fecha</b></h5>
+                                                    </div>
+                                                    <div class="col-lg-10 col-md-10 col-12">
+                                                        <input type="text" name="txtFechaR" class="form-control txtFechaR" maxlength="200" data-validetta="required">
+                                                    </div>
+                                                    <div class="col-5 text-center mt-4">
+                                                        <div><b>Estudiantes</b></div>
+                                                    </div>
+                                                    <div class="col-5 text-center mt-4">
+                                                        <div><b>Profesionales</b></div>
+                                                    </div>
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h5><b>Precio Miembros</b></h5>
+                                                    </div>
+                                                    <div class="col-5 d-flex ">
+                                                        <input type="text" name="precioR1" class="form-control precioR1" maxlength="8" data-validetta="required,number">
+                                                    </div>
+                                                    <div class="col-5 d-flex">
+                                                        <input type="text" name="precioR2" class="form-control precioR2" maxlength="8" data-validetta="required,number">
+                                                    </div>
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h5><b>Precio No Miembros</b></h5>
+                                                    </div>
+                                                    <div class="col-5 d-flex">
+                                                        <input type="text" name="precioR3" class="form-control precioR3" maxlength="8" data-validetta="required,number">
+                                                    </div>
+                                                    <div class="col-5 d-flex">
+                                                        <input type="text" name="precioR4" class="form-control precioR4" maxlength="8" data-validetta="required,number">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <input type="text" name="precioMPR" class="form-control" data-validetta="required,maxLength[255]">
+                                            <!--Inscripción Día del Evento-------------------------------------------------->
+                                            <div class="tab-pane fade" id="diaEvento" role="tabpanel" aria-labelledby="diaEvento-tab">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h4 class="mt-4"><b>Inscripción Día del evento</b></h4>
+                                                    </div>
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h5><b>Fecha</b></h5>
+                                                    </div>
+                                                    <div class="col-lg-10 col-md-10 col-12">
+                                                        <input type="text" name="txtFechaE" class="form-control txtFechaE" maxlength="200" data-validetta="required">
+                                                    </div>
+                                                    <div class="col-5 text-center mt-4">
+                                                        <div><b>Estudiantes</b></div>
+                                                    </div>
+                                                    <div class="col-5 text-center mt-4">
+                                                        <div><b>Profesionales</b></div>
+                                                    </div>
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h5><b>Precio Miembros</b></h5>
+                                                    </div>
+                                                    <div class="col-5 d-flex ">
+                                                        <input type="text" name="precioE1" class="form-control precioE1" maxlength="8" data-validetta="required,number">
+                                                    </div>
+                                                    <div class="col-5 d-flex">
+                                                        <input type="text" name="precioE2" class="form-control precioE2" maxlength="8" data-validetta="required,number">
+                                                    </div>
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h5><b>Precio No Miembros</b></h5>
+                                                    </div>
+                                                    <div class="col-5 d-flex">
+                                                        <input type="text" name="precioE3" class="form-control precioE3" maxlength="8" data-validetta="required,number">
+                                                    </div>
+                                                    <div class="col-5 d-flex">
+                                                        <input type="text" name="precioE4" class="form-control precioE4" maxlength="8" data-validetta="required,number">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>  
-                                       
-
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h4 style="color: black;"><b>Precio No Miembros</b></h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <input type="text" name="precioNoMER" class="form-control" data-validetta="required,maxLength[255]">
+                                            <!--Cuenta Residentes-------------------------------------------------->
+                                            <div class="tab-pane fade" id="residentes" role="tabpanel" aria-labelledby="residentes-tab">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h4 class="mt-4"><b>Cuenta Residentes</b></h4>
+                                                    </div>  
+                                                    <div class="col-10 d-flex mt-2">
+                                                        <h5><b>Banco</b></h5>
+                                                    </div>                                              
+                                                    <div class="col-10 d-flex">
+                                                        <input type="text" name="txtBancoR" class="form-control txtBancoR" data-validetta="required,maxLength[255]">
+                                                    </div>
+                                                    <div class="col-10 d-flex mt-2">
+                                                        <h5><b>Nombre de Cuenta</b></h5>
+                                                    </div>  
+                                                    <div class="col-10 d-flex">
+                                                        <input type="text" name="txtCuentaR" class="form-control txtCuentaR" data-validetta="required,maxLength[255]">
+                                                    </div>
+                                                    <div class="col-10 d-flex mt-2">
+                                                        <h5><b>N° de Cuenta</b></h5>
+                                                    </div> 
+                                                    <div class="col-10 d-flex">
+                                                        <input type="text" name="txtNumeroR" class="form-control txtNumeroR" data-validetta="required,maxLength[255]">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <input type="text" name="precioNoMPR" class="form-control" data-validetta="required,maxLength[255]">
+                                            <!--Cuenta No Residentes-------------------------------------------------->
+                                            <div class="tab-pane fade" id="noResidentes" role="tabpanel"
+                                                aria-labelledby="noResidentes-tab">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h4 class="mt-4"><b>Cuenta No Residentes</b></h4>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <h5 class="mt-2"><b>Banco</b></h5>
+                                                        <input type="text" name="txtBancoN" class="form-control txtBancoN" data-validetta="required,maxLength[255]">
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <h5 class="mt-2"><b>Código del Banco</b></h5>
+                                                        <input type="text" name="txtCodigoN" class="form-control txtCodigoN" data-validetta="required,maxLength[255]">
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <h5 class="mt-2"><b>Dirección del Banco</b></h5>
+                                                        <textarea style="resize: none;" name="txtDireccionN"
+                                                            cols="20" rows="3" class="form-control txtDireccionN"
+                                                            data-validetta="required,maxLength[255]"></textarea>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <h5 class="mt-2"><b>Nombre de Cuenta</b></h5>
+                                                        <input type="text" name="txtCuentaN" class="form-control txtCuentaN" data-validetta="required,maxLength[255]">
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <h5 class="mt-2"><b>N° de Cuenta</b></h5>
+                                                        <input type="text" name="txtNumeroN" class="form-control txtNumeroN" data-validetta="required,maxLength[255]">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>  
-                                       
-                                    </div>
-
-                                    <!--Inscripción Día del Evento-------------------------------------------------->
-                                    <div class="tab-pane fade" id="diaEvento" role="tabpanel"
-                                        aria-labelledby="diaEvento-tab">
-                                    
-                                        
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h3 style="color:#397B34;"><b>Inscripción Día del Evento</b></h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h4 style="color: black;"><b>Fecha</b></h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="row d-flex justify-content-center">
-                                            <div class="col-lg-7 col-md-7 col-12">
-                                                <input type="date" name="fechaDiaEvent" class="form-control" data-validetta="required,maxLength[255]">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-4">
-                                            <div class="col-6 text-center">
-                                                <h4 style="color:#397B34;"><b>Estudiantes</b></h4>
-                                            </div>
-                                            <div class="col-6 text-center">
-                                                <h4 style="color:#397B34;"><b>Profesionales</b></h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h4 style="color: black;"><b>Precio Miembros</b></h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <input type="text" name="precioMEDV" class="form-control" data-validetta="required,maxLength[255]">
-                                                </div>
-                                            </div>
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <input type="text" name="precioMPDV" class="form-control" data-validetta="required,maxLength[255]">
-                                                </div>
-                                            </div>
-                                        </div>  
-                                       
-
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h4 style="color: black;"><b>Precio No Miembros</b></h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <input type="text" name="precioNoMEDV" class="form-control" data-validetta="required,maxLength[255]">
-                                                </div>
-                                            </div>
-                                            <div class="col-6 d-flex justify-content-center">
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <input type="text" name="precioNoMPDV" class="form-control" data-validetta="required,maxLength[255]">
-                                                </div>
-                                            </div>
-                                        </div>  
-                                        
-                                    </div>
-
-                                     <!--Cuenta Residentes-------------------------------------------------->
-
-                                    <div class="tab-pane fade" id="residentes" role="tabpanel"
-                                        aria-labelledby="residentes-tab">
-
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h3 style="color:#397B34;"><b>Cuenta Residentes</b></h3>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-12 d-flex justify-content-center">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>Banco</b></h4>
-                                                    <input type="text" name="bancoCR" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
+                                            <!--Cuenta Alterna-------------------------------------------------->
+                                            <div class="tab-pane fade" id="alterna" role="tabpanel" aria-labelledby="alterna-tab">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-10 text-center mt-4">
+                                                        <h4 class="mt-4"><b>Cuenta Alterna</b></h4>
+                                                    </div>  
+                                                    <div class="col-10 d-flex mt-2">
+                                                        <h5><b>Banco</b></h5>
+                                                    </div>                                              
+                                                    <div class="col-10 d-flex">
+                                                        <input type="text" name="txtBancoA" class="form-control txtBancoA" data-validetta="required,maxLength[255]">
+                                                    </div>
+                                                    <div class="col-10 d-flex mt-2">
+                                                        <h5><b>Nombre de Cuenta</b></h5>
+                                                    </div>  
+                                                    <div class="col-10 d-flex">
+                                                        <input type="text" name="txtCuentaA" class="form-control txtCuentaA" data-validetta="required,maxLength[255]">
+                                                    </div>
+                                                    <div class="col-10 d-flex mt-2">
+                                                        <h5><b>N° de Cuenta</b></h5>
+                                                    </div> 
+                                                    <div class="col-10 d-flex">
+                                                        <input type="text" name="txtNumeroA" class="form-control txtNumeroA" data-validetta="required,maxLength[255]">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center mt-2">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>Nombre de Cuenta</b></h4>
-                                                    <input type="text" name="nombreCR" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
+                                        <!--Boton del Form--------------------------->
+                                        <div class="text-center mt-4">
+                                            <input type="submit" value="Guardar" class="btn-formularios mt-1">
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center mt-2">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>N° de Cuenta</b></h4>
-                                                    <input type="text" name="numeroCR" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-                                       
-                                    </div>
-
-                                    <!--Cuenta No Residentes-------------------------------------------------->
-
-                                    <div class="tab-pane fade" id="noResidentes" role="tabpanel"
-                                        aria-labelledby="noResidentes-tab">
-                                        
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h3 style="color:#397B34;"><b>Cuenta No Residentes</b></h3>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-12 d-flex justify-content-center">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>Banco</b></h4>
-                                                    <input type="text" name="bancoCNR" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center mt-2">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>Código del Banco</b></h4>
-                                                    <input type="text" name="codigoBancoCNR" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center mt-2">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>Dirección del Banco</b></h4>
-                                                    <textarea style="resize: none;" name="direccionBancoCNR" cols="20" rows="4"  class="form-control" data-validetta="required,maxLength[280]"></textarea>
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                       
-
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center mt-2">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>Nombre de Cuenta</b></h4>
-                                                    <input type="text" name="nombreCNR" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center mt-2">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>N° de Cuenta</b></h4>
-                                                    <input type="text" name="numeroCNR" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                     <!--Cuenta Alterna-------------------------------------------------->
-                                    <div class="tab-pane fade" id="alterna" role="tabpanel"
-                                        aria-labelledby="alterna-tab">
-
-                                        <div class="row">
-                                            <div class="col-12 text-center mt-4">
-                                                <h3 style="color:#397B34;"><b>Cuenta Alterna</b></h3>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-12 d-flex justify-content-center">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>Banco</b></h4>
-                                                    <input type="text" name="bancoCA" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center mt-2">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>Nombre de Cuenta</b></h4>
-                                                    <input type="text" name="nombreCA" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center mt-2">
-                                                <div class="col-lg-7 col-md-7 col-12">
-                                                        
-                                                    <h4 style="color: black;"><b>N° de Cuenta</b></h4>
-                                                    <input type="text" name="numeroCA" class="form-control" data-validetta="required,maxLength[255]">
-                                                     
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
-    
-                         </div>
-                     </div>
-
-                      <!--Boton del Form--------------------------->
-                      <div class="text-center">
-                        <input type="submit"  value="Guardar" class="btn-formularios mt-1">
+                        </div>                        
                     </div>
-                     
-                   </form>
                 </div>
             </div>
-
-            </div>
-
         </div>
     </div>
 
-     <!--Scripts-->
+    <!--Scripts-->
 
     <!--Jquery-->
     <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
-
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
     <!--Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
-
-
     <!--Validetta-->
     <script src="assets/lib/validetta/validetta.min.js"></script>
     <script src="assets/lib/validetta/validettaLang-es-ES.js"></script>
+    <!-- Toastify -->
+    <script src="assets/vendors/toastify/toastify.js"></script>
     <!--Ajax-->
     <script src="assets/js/jquery/ajaxInscripcion.js"></script>
+    <!-- Cookies -->
+    <script src="assets/js/extensions/jquery.cookie.js"></script>
+    <!-- Credenciales -->
+    <script src="assets/js/jquery/utils.js"></script> 
 </body>
-
 </html>

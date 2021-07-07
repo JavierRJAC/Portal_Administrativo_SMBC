@@ -145,7 +145,7 @@
                                 <h3 class="m-4">Noticias</h3>
                             </div>
                             <div class="col-lg-2 col-md-2 col-4 d-flex text-center">
-                                <a class="botonP" data-bs-toggle="modal" data-bs-target="#large">
+                                <a class="botonP" data-bs-toggle="modal" data-bs-target="#mdlAgregar">
                                     <img src="assets/images/iconos/cruz.png" class="imgAgregar" alt="">
                                 </a>
                             </div>
@@ -175,7 +175,8 @@
                     </div>
                 </div>
                 <!--Modal Agregar--------------------------------------------------------------------->
-                <div class="modal fade text-left" id="large" tabindex="-1" role="dialog"
+
+                <div class="modal fade text-left" id="mdlAgregar" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel17" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                         <div class="modal-content">
@@ -194,13 +195,13 @@
                                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                                     Título
                                                     <input type="text" name="txtTitulo" placeholder="Escribe aquí..."
-                                                        class="form-control" data-validetta="required,maxLength[255]">
+                                                        class="form-control txtTitulo" data-validetta="required,maxLength[255]">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-12">
                                                     Afiche
-                                                    <input type="file" name="Fileimagen" class="form-control"
+                                                    <input type="file" name="Fileimagen" class="form-control fileImagen"
                                                         data-validetta="required">
                                                 </div>
                                             </div>

@@ -1,11 +1,40 @@
 $(document).ready(()=>{  
     // Acción de agregar
+
     var formAgregar = $('#formAgregar');
     formAgregar.validetta({
         realTime: true,
         bubblePosition: 'bottom',
         onValid: function(e){
             e.preventDefault();
+         
+            let formData = new FormData();
+            let img = $('.fileIcono').prop('files')[0] 
+            let data = datos('#mdlAgregar')         
+            formData.append('imagen', img); 
+            formData.append('datos', JSON.stringify(data)); 
+
+            $.ajax({
+                type: 'POST',
+                url: url+'add_objetivo',
+                data: formData,
+                cache: false,
+                contentType: false, 
+                processData: false,
+                headers: { 'Authorization': key },
+                success: function(res){
+                    let msj = (res.data==true)?'El registro ha sido agregado':'Ha ocurrido un error';
+                    $('#odsTable').DataTable().ajax.reload();
+                    alerta(msj)
+                    formAgregar.trigger('reset'); 
+                    $('#mdlAgregar').modal('toggle');
+                },
+                error: function(){
+                    alerta('Ha ocurrido un error')
+                }
+            });
+            
+
         }
     })
 
@@ -37,6 +66,39 @@ $(document).ready(()=>{
             }
         ]
     });
+
+    // Acción de estado
+    $('body').on('click', '.btnEstado', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#odsTable').DataTable().row(tr).data();
+        var id = data.id;
+        var estado = (data.estado === "Visible")? 1: 0;
+        
+
+        //Objeto
+        var data = {
+           "datos":{
+              "id":id,
+              "estado": estado
+           }
+        }
+        
+
+        $.ajax({
+            type: 'POST',
+            url: url+'estado_objetivo',
+            data: data,
+            headers: { 'Authorization': key },
+            success: function(res){
+                let msj = (res.data==true)?'El registro ha cambiado de estado':'Ha ocurrido un error';
+                $('#odsTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+    })
 
     // Acción de editar
     $('body').on('click', '.btnEditar', function(){
@@ -86,6 +148,31 @@ $(document).ready(()=>{
             });
         }
     })
+
+
+     // Eliminar registro
+
+     $('body').on('click', '.btnEliminar', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#odsTable').DataTable().row(tr).data();
+        var id = data.id;
+        
+        $.ajax({
+            type: 'DELETE',
+            url: url+'delete_objetivo?id='+id,
+            headers: { 'Authorization': key },
+            success: function(res){
+                console.log(res);
+                let msj = (res.data==true)?'El registro ha sido eliminado':(res.data==false)? "El registro no se puede Eliminar": 'Ha ocurrido un error';
+                $('#odsTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+    })
+   
 
     // Cierre de modal
     $("#mdlEditar").on("hidden.bs.modal", function () {

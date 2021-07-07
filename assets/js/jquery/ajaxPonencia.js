@@ -44,6 +44,24 @@ $(document).ready(()=>{
         bubblePosition: 'bottom',
         onValid: function(e){
             e.preventDefault();
+            let data = datos('#mdlAgregar')
+
+            $.ajax({
+                type: 'POST',
+                url: url+'add_ponencia',
+                data: data,
+                headers: { 'Authorization': key },
+                success: function(res){
+                    let msj = (res.data==true)?'El registro ha sido agregado 1':'Ha ocurrido un error';
+                    $('#ponenciasTable').DataTable().ajax.reload();
+                    alerta(msj)
+                    formAgregar.trigger('reset'); 
+                    $('#mdlAgregar').modal('toggle');
+                },
+                error: function(){
+                    alerta('Ha ocurrido un error')
+                }
+            });
         }
     })
 

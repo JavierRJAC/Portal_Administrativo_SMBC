@@ -6,6 +6,25 @@ $(document).ready(()=>{
         bubblePosition: 'bottom',
         onValid: function(e){
             e.preventDefault();
+            
+            let data = datos('#mdlAgregar')
+            
+            $.ajax({
+                type: 'POST',
+                url: url+'add_aviso',
+                data: data,
+                headers: { 'Authorization': key },
+                success: function(res){
+                    let msj = (res.data==true)?'El registro ha sido actualizado':'Ha ocurrido un error';
+                    $('#avisosTable').DataTable().ajax.reload();
+                    alerta(msj)
+                    formEditar.trigger('reset'); 
+                    $('#mdlAgregar').modal('toggle');
+                },
+                error: function(){
+                    alerta('Ha ocurrido un error')
+                }
+            });
         }
     })
 

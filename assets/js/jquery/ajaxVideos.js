@@ -44,6 +44,23 @@ $(document).ready(()=>{
         bubblePosition: 'bottom',
         onValid: function(e){
             e.preventDefault();
+            let data = datos('#mdlAgregar')         
+            $.ajax({
+                type: 'POST',
+                url: url+'add_video',
+                data: data,
+                headers: { 'Authorization': key },
+                success: function(res){
+                    let msj = (res.data==true)?'El registro ha sido agregado':'Ha ocurrido un error';
+                    $('#videosTable').DataTable().ajax.reload();
+                    alerta(msj)
+                    formAgregar.trigger('reset'); 
+                    $('#mdlAgregar').modal('toggle');
+                },
+                error: function(){
+                    alerta('Ha ocurrido un error')
+                }
+            });
         }
     })
 
@@ -108,7 +125,7 @@ $(document).ready(()=>{
             let id = $('#id').text()
             let data = datos('#mdlEditar')
             data.datos['id'] = id 
-            
+
             $.ajax({
                 type: 'POST',
                 url: url+'edit_video',
@@ -125,6 +142,7 @@ $(document).ready(()=>{
                     alerta('Ha ocurrido un error')
                 }
             });
+ 
         }
     })
 
@@ -141,7 +159,7 @@ $(document).ready(()=>{
         let ponentes = $(modal+' .sPonentes option:selected').map(function () {
             return $(this).attr('data-id');
         }).get()
-        let enlace = $('.txtEnlace').val().trim()
+        let enlace = $(modal+' .txtEnlace').val().trim()
         
         let data = {
             "datos":{

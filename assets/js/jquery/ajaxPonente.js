@@ -6,6 +6,31 @@ $(document).ready(()=>{
         bubblePosition: 'bottom',
         onValid: function(e){
             e.preventDefault();
+            let formData = new FormData();
+            let img = $('.fileImg').prop('files')[0] 
+            let data = datos('#mdlAgregar')         
+            formData.append('imagen', img); 
+            formData.append('datos', JSON.stringify(data)); 
+
+            $.ajax({
+                type: 'POST',
+                url: url+'add_ponente',
+                data: formData,
+                cache: false,
+                contentType: false, 
+                processData: false,
+                headers: { 'Authorization': key },
+                success: function(res){
+                    let msj = (res.data==true)?'El registro ha sido agregado':'Ha ocurrido un error';
+                    $('#ponentesTable').DataTable().ajax.reload();
+                    alerta(msj)
+                    formAgregar.trigger('reset'); 
+                    $('#mdlAgregar').modal('toggle');
+                },
+                error: function(){
+                    alerta('Ha ocurrido un error')
+                }
+            });
         }
     })
 

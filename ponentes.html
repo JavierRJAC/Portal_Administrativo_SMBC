@@ -148,7 +148,7 @@
                             </div>
 
                             <div class="col-lg-2 col-md-2 col-4 d-flex text-center">
-                                <a class="botonP" data-bs-toggle="modal" data-bs-target="#large">
+                                <a class="botonP" data-bs-toggle="modal" data-bs-target="#mdlAgregar">
                                     <img src="assets/images/iconos/cruz.png" class="imgAgregar" alt="">
                                 </a>
                             </div>
@@ -180,8 +180,10 @@
                         </div>
                     </div>
                 </div>
+
                 <!--Modal Agregar--------------------------------------------------------------------->
-                <div class="modal fade text-left" id="large" tabindex="-1" role="dialog"
+
+                <div class="modal fade text-left" id="mdlAgregar" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel17" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                         <div class="modal-content">
@@ -192,31 +194,31 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="row d-flex justify-content-center">
+                                <div class="row d-flex">
                                     <div class="col-12">
-                                        <!--Formulario-->
-                                        <form action="#" method="POST" id="formAgregar" enctype="multipart/form-data">
+                                         <!--Formulario-->
+                                         <form action="#" method="POST" id="formAgregar" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                                     Nombre
-                                                    <input type="text" name="txtNombre" placeholder="Escribe aquí..." class="form-control" data-validetta="required,maxLength[200]">
+                                                    <input type="text" name="txtNombre" placeholder="Escribe aquí..." class="form-control txtNombre" data-validetta="required,maxLength[200]">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                                     Cargo
-                                                    <input type="text" name="txtCargo" placeholder="Escribe aquí..." class="form-control" data-validetta="required,maxLength[60]">
+                                                    <input type="text" name="txtCargo" placeholder="Escribe aquí..." class="form-control txtCargo" data-validetta="required,maxLength[60]">
                                                 </div>
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                                     Foto
-                                                    <input type="file" name="fileImg" class="form-control" data-validetta="required">
+                                                    <input type="file" name="fileImg" class="form-control fileImg" data-validetta="required">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-12">
                                                     Descripción
                                                     <textarea style="resize: none;" name="txtDescripcion" cols="20"
-                                                        rows="5" placeholder="Escriba aquí..." class="form-control"
+                                                        rows="5" placeholder="Escriba aquí..." class="form-control txtDescripcion"
                                                         data-validetta="required,maxLength[300]"></textarea>
                                                 </div>
                                             </div>

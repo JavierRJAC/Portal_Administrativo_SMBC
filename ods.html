@@ -149,7 +149,7 @@
                             </div>
 
                             <div class="col-lg-2 col-md-2 col-4 d-flex text-center">
-                                <a class="botonP" data-bs-toggle="modal" data-bs-target="#large">
+                                <a class="botonP" data-bs-toggle="modal" data-bs-target="#mdlAgregar">
                                     <img src="assets/images/iconos/cruz.png" class="imgAgregar" alt="">
                                 </a>
                             </div>
@@ -184,7 +184,8 @@
                 </div>
 
                 <!--Modal Agregar--------------------------------------------------------------------->
-                <div class="modal fade text-left" id="large" tabindex="-1" role="dialog"
+
+                <div class="modal fade text-left" id="mdlAgregar" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel17" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                         <div class="modal-content">
@@ -197,25 +198,26 @@
                             <div class="modal-body">
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-12">
-                                        <!--Formulario-->
-                                        <form method="POST" id="formAgregar" enctype="multipart/form-data">
+                                         <!--Formulario-->
+                                         <form method="POST" id="formAgregar" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                                     Título
                                                     <input type="text" name="txtTitulo" placeholder="Escribe aquí..."
-                                                        class="form-control" data-validetta="required,maxLength[100]">
+                                                        class="form-control txtTitulo" data-validetta="required,maxLength[100]">
                                                 </div>
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                                     Icono
-                                                    <input type="file" name="fileIcono" class="form-control"
+                                                    <input type="file" name="fileIcono" class="form-control fileIcono"
                                                         data-validetta="required">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-12">
                                                     Descripción
-                                                    <textarea style="resize: none;" name="txtDescripcion" cols="20"
-                                                        rows="5" placeholder="Escriba aquí..." class="form-control"
+                                                    <textarea style="resize: none;" name="txtDescripcion"
+                                                        cols="20" rows="5"
+                                                        placeholder="Escriba aquí..." class="form-control txtDescripcion"
                                                         data-validetta="required,maxLength[400]"></textarea>
                                                 </div>
                                             </div>
@@ -229,6 +231,10 @@
                         </div>
                     </div>
                 </div>
+                 
+                
+
+
                 <!--Modal Editar--------------------------------------------------------------------->
                 <div class="modal fade text-left" id="mdlEditar" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel17" aria-hidden="true">

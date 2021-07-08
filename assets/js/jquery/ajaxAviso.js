@@ -94,6 +94,29 @@ $(document).ready(()=>{
         }
     })
 
+     // Eliminar registro
+
+     $('body').on('click', '.btnEliminar', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#avisosTable').DataTable().row(tr).data();
+        var id = data.id;
+        
+        $.ajax({
+            type: 'DELETE',
+            url: url+'delete_publicacion?id='+id,
+            headers: { 'Authorization': key },
+            success: function(res){
+                let msj = (res.data==true)?'El registro ha sido eliminado':(res.data==false)? "El registro no se puede Eliminar": 'Ha ocurrido un error';
+                $('#avisosTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+        
+    })
+
     // Usar para agregar también
     datos = (modal) => {       
         let fechas = $(modal+' .txtTituloFechas').val().trim()

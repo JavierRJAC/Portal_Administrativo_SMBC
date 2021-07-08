@@ -22,7 +22,7 @@ $('#btnSalir').click((e)=>{
     window.location.href = "login.html";
 })
 
-// Validando sesión   
+// Validando sesión  
 let path =  window.location.pathname
 let sesion = () => {
     let usr = $.cookie('usr')

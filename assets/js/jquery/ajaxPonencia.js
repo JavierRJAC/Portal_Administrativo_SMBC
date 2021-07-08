@@ -52,7 +52,7 @@ $(document).ready(()=>{
                 data: data,
                 headers: { 'Authorization': key },
                 success: function(res){
-                    let msj = (res.data==true)?'El registro ha sido agregado 1':'Ha ocurrido un error';
+                    let msj = (res.data==true)?'El registro ha sido agregado':'Ha ocurrido un error';
                     $('#ponenciasTable').DataTable().ajax.reload();
                     alerta(msj)
                     formAgregar.trigger('reset'); 
@@ -142,6 +142,31 @@ $(document).ready(()=>{
                 }
             });
         }
+    })
+
+
+     // Eliminar registro
+
+     $('body').on('click', '.btnEliminar', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#ponenciasTable').DataTable().row(tr).data();
+        var id = data.id;
+        
+        $.ajax({
+            type: 'DELETE',
+            url: url+'delete_recurso?id='+id,
+            headers: { 'Authorization': key },
+            success: function(res){
+                
+                let msj = (res.data==true)?'El registro ha sido eliminado':(res.data==false)? "El registro no se puede Eliminar": 'Ha ocurrido un error';
+                $('#ponenciasTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+        
     })
 
     // Cierre de modal

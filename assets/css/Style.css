@@ -57,6 +57,16 @@ span{
     background-color:#54b64d;
   }
 
+  /*boxCard para ponencias*/
+
+  .boxCard{
+    position: relative;
+    display: block;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 10px;
+  }
 
   /*Colores del input para subir imagenes de imagenes*/
   .imgbb-filepond span{
@@ -68,6 +78,7 @@ span{
   }
   /* Loader iFrame Videos */
   .iVideo{
+    display: block;
     background-repeat:no-repeat;
     background-position:center;
     height:400px;
@@ -84,9 +95,6 @@ span{
   }
 
   /* Loader */
-  #app{
-    display: none;
-  }
 
   .loader{
     height: 100vh;

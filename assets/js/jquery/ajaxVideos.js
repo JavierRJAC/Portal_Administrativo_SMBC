@@ -92,7 +92,41 @@ $(document).ready(()=>{
                 }
             }
         ]
-    });    
+    });
+    
+    
+    // Acción de estado
+    $('body').on('click', '.btnEstado', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#videosTable').DataTable().row(tr).data();
+        var id = data.id;
+        var estado = (data.estado === "Visible")? 1: 0;
+        
+
+        //Objeto
+        var data = {
+           "datos":{
+              "id":id,
+              "estado": estado
+           }
+        }
+        
+
+        $.ajax({
+            type: 'POST',
+            url: url+'estado_video',
+            data: data,
+            headers: { 'Authorization': key },
+            success: function(res){
+                let msj = (res.data==true)?'El registro ha cambiado de estado':'Ha ocurrido un error';
+                $('#videosTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+    })
 
     // Cambio del select de área temática
     $('.areaTematica').change(function (e) {
@@ -144,6 +178,29 @@ $(document).ready(()=>{
             });
  
         }
+    })
+
+     // Eliminar registro
+     $('body').on('click', '.btnEliminar', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#videosTable').DataTable().row(tr).data();
+        var id = data.id;
+        
+        $.ajax({
+            type: 'DELETE',
+            url: url+'delete_recurso?id='+id,
+            headers: { 'Authorization': key },
+            success: function(res){
+                
+                let msj = (res.data==true)?'El registro ha sido eliminado':(res.data==false)? "El registro no se puede Eliminar": 'Ha ocurrido un error';
+                $('#videosTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+        
     })
 
     // Cierre de modal

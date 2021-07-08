@@ -112,6 +112,29 @@ $(document).ready(()=>{
         }
     })
 
+    // Eliminar registro
+
+    $('body').on('click', '.btnEliminar', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#noticiasTable').DataTable().row(tr).data();
+        var id = data.id;
+        
+        $.ajax({
+            type: 'DELETE',
+            url: url+'delete_publicacion?id='+id,
+            headers: { 'Authorization': key },
+            success: function(res){
+                let msj = (res.data==true)?'El registro ha sido eliminado':(res.data==false)? "El registro no se puede Eliminar": 'Ha ocurrido un error';
+                $('#noticiasTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+        
+    })
+
     // Cierre de modal
     $("#mdlEditar").on("hidden.bs.modal", function () {
         $('.imgAfiche').attr("src",'assets/images/iconos/loading.gif')

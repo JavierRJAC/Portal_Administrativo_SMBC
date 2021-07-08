@@ -162,7 +162,6 @@ $(document).ready(()=>{
             url: url+'delete_objetivo?id='+id,
             headers: { 'Authorization': key },
             success: function(res){
-                console.log(res);
                 let msj = (res.data==true)?'El registro ha sido eliminado':(res.data==false)? "El registro no se puede Eliminar": 'Ha ocurrido un error';
                 $('#odsTable').DataTable().ajax.reload();
                 alerta(msj)
@@ -171,6 +170,7 @@ $(document).ready(()=>{
                 alerta('Ha ocurrido un error')
             }
         })
+        
     })
    
 

@@ -63,6 +63,40 @@ $(document).ready(()=>{
         ]
     });
 
+    
+    // Acción de estado
+    $('body').on('click', '.btnEstado', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#ponentesTable').DataTable().row(tr).data();
+        var id = data.id;
+        var estado = (data.estado === "Visible")? 1: 0;
+        
+
+        //Objeto
+        var data = {
+           "datos":{
+              "id":id,
+              "estado": estado
+           }
+        }
+        
+
+        $.ajax({
+            type: 'POST',
+            url: url+'estado_ponente',
+            data: data,
+            headers: { 'Authorization': key },
+            success: function(res){
+                let msj = (res.data==true)?'El registro ha cambiado de estado':'Ha ocurrido un error';
+                $('#ponentesTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+    })
+
     // Acción de editar
     
     $('body').on('click', '.btnEditar', function(){
@@ -111,6 +145,30 @@ $(document).ready(()=>{
                 }
             });
         }
+    })
+
+
+     // Eliminar registro
+
+     $('body').on('click', '.btnEliminar', function(){
+        var tr = $(this).closest("tr");
+        var data = $('#ponentesTable').DataTable().row(tr).data();
+        var id = data.id;
+        
+        $.ajax({
+            type: 'DELETE',
+            url: url+'delete_ponente?id='+id,
+            headers: { 'Authorization': key },
+            success: function(res){
+                let msj = (res.data==true)?'El registro ha sido eliminado':(res.data==false)? "El registro no se puede Eliminar": 'Ha ocurrido un error';
+                $('#ponentesTable').DataTable().ajax.reload();
+                alerta(msj)
+            },
+            error: function(){
+                alerta('Ha ocurrido un error')
+            }
+        })
+        
     })
 
     // Cierre de modal

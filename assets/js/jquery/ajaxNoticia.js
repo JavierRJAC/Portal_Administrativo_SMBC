@@ -113,7 +113,6 @@ $(document).ready(()=>{
     })
 
     // Eliminar registro
-
     $('body').on('click', '.btnEliminar', function(){
         var tr = $(this).closest("tr");
         var data = $('#noticiasTable').DataTable().row(tr).data();
@@ -138,6 +137,10 @@ $(document).ready(()=>{
     // Cierre de modal
     $("#mdlEditar").on("hidden.bs.modal", function () {
         $('.imgAfiche').attr("src",'assets/images/iconos/loading.gif')
+    });
+
+    $("#mdlAgregar").on("hidden.bs.modal", function () {
+        formAgregar.trigger('reset'); 
     });
 
     // Usar para agregar también

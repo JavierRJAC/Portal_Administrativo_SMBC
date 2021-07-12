@@ -1,13 +1,11 @@
 $(document).ready(()=>{  
     // Acción de agregar
-
     var formAgregar = $('#formAgregar');
     formAgregar.validetta({
         realTime: true,
         bubblePosition: 'bottom',
         onValid: function(e){
-            e.preventDefault();
-         
+            e.preventDefault();         
             let formData = new FormData();
             let img = $('.fileIcono').prop('files')[0] 
             let data = datos('#mdlAgregar')         
@@ -46,6 +44,7 @@ $(document).ready(()=>{
                 headers: { 'Authorization': key },
             },
         'columns': [
+            { 'data': 'id' },
             { 'data': 'titulo' },
             { 'data': 'estado' },
             {
@@ -77,12 +76,11 @@ $(document).ready(()=>{
 
         //Objeto
         var data = {
-           "datos":{
-              "id":id,
-              "estado": estado
-           }
-        }
-        
+            "datos":{
+                "id":id,
+                "estado": estado
+            }
+        }        
 
         $.ajax({
             type: 'POST',
@@ -151,8 +149,7 @@ $(document).ready(()=>{
 
 
      // Eliminar registro
-
-     $('body').on('click', '.btnEliminar', function(){
+    $('body').on('click', '.btnEliminar', function(){
         var tr = $(this).closest("tr");
         var data = $('#odsTable').DataTable().row(tr).data();
         var id = data.id;
@@ -171,12 +168,15 @@ $(document).ready(()=>{
             }
         })
         
-    })
-   
+    })   
 
     // Cierre de modal
     $("#mdlEditar").on("hidden.bs.modal", function () {
         $('.imgIcono').attr("src",'assets/images/iconos/loading.gif')
+    });
+
+    $("#mdlAgregar").on("hidden.bs.modal", function () {
+        formAgregar.trigger('reset'); 
     });
 
     // Usar para agregar también

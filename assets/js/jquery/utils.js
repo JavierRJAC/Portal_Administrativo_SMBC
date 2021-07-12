@@ -19,20 +19,24 @@ function alerta(message){
 $('#btnSalir').click((e)=>{
     e.preventDefault()
     $.cookie('usr', false);
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 })
 
 // Validando sesión  
 let path =  window.location.pathname
+let sPath = path.split( '/' )
+let size = sPath.length
+let rPath = sPath[size-1]
+
 let sesion = () => {
     let usr = $.cookie('usr')
     if(usr=='false' || typeof usr === 'undefined'){
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     } else{
-        $('.loader').fadeOut(1500)
-        $('#app').fadeIn()
+        $('.loader').fadeOut(1000)
+        $('#app').css('display','block')
     }
 }  
-if(path!=='/login.html'){
+if(rPath!=='index.html'){
     sesion() 
-}
+} 

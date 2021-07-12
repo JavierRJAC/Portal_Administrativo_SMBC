@@ -18,7 +18,7 @@ $(document).ready(()=>{
                     let msj = (res.data==true)?'El registro ha sido actualizado':'Ha ocurrido un error';
                     $('#avisosTable').DataTable().ajax.reload();
                     alerta(msj)
-                    formEditar.trigger('reset'); 
+                    formAgregar.trigger('reset'); 
                     $('#mdlAgregar').modal('toggle');
                 },
                 error: function(){
@@ -64,6 +64,10 @@ $(document).ready(()=>{
         $('#mdlEditar .txtContenido').val(data.contenido)  
     })
 
+    $("#mdlAgregar").on("hidden.bs.modal", function () {
+        formAgregar.trigger('reset'); 
+    });
+
     // Enviar formulario
     var formEditar = $('#formEditar');
     formEditar.validetta({
@@ -95,8 +99,7 @@ $(document).ready(()=>{
     })
 
      // Eliminar registro
-
-     $('body').on('click', '.btnEliminar', function(){
+    $('body').on('click', '.btnEliminar', function(){
         var tr = $(this).closest("tr");
         var data = $('#avisosTable').DataTable().row(tr).data();
         var id = data.id;

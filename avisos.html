@@ -6,18 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avisos</title>
     <link rel="shortcut icon" href="assets/images/logo/logo.png">
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
-
     <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
-
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/Style.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
     <!--DataTable-->
     <link rel="stylesheet" href="assets/lib/DataTables-1.10.25/css/jquery.dataTables.min.css">
     <!--Validetta-->
@@ -40,85 +36,69 @@
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                         </div>
                     </div>
-
                     <div class="d-flex justify-content-center">
                         <div class="col-lg-12 text-center logo">
                             <img src="assets/images/logo/logo.png" class="mb-2" alt="Logo">
                             <h4 style="color:#397B34;">SMBC</h4>
                         </div>
                     </div>
-
-
                 </div>
-
                 <div class="sidebar-menu">
-
                     <ul class="menu">
-
                         <li class="sidebar-item">
                             <a href="ods.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-card-checklist"></i>
                                 <span>ODS</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="ponentes.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-people-fill"></i>
                                 <span>Ponentes</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="videos.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-collection-play-fill"></i>
                                 <span>Videos</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="ponencias.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-mic-fill"></i>
                                 <span>Ponencias</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item active">
                             <a href="avisos.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-chat-quote-fill"></i>
                                 <span>Avisos</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="noticias.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-newspaper"></i>
                                 <span>Noticias</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
-                            <a href="Inscripcion.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                            <a href="inscripcion.html" class='sidebar-link'>
+                                <i class="bi bi-cash"></i>
                                 <span>Inscripción</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="perfil.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-file-earmark-person"></i>
                                 <span>Perfil</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item mb-2 ">
                             <a href="#" id="btnSalir" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-backspace-fill"></i>
                                 <span>Salir</span>
                             </a>
                         </li>
-
-
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -155,19 +135,19 @@
                         </div>
                     </div>
                 </div>
-                <!--DataTable---------------------------------------------------------------------->        
+                <!--DataTable---------------------------------------------------------------------->
                 <div class="row d-flex justify-content-center mt-3">
                     <div class="col-lg-11 col-md-11 col-ms-11">
                         <div class="row d-flex justify-content-center">
                             <div class="col-lg-12 col-md-12 col-12 card ">
-                                <div class="card-body">                        
+                                <div class="card-body">
                                     <table class="table table-striped" style="width:100%" id="avisosTable">
                                         <thead class="text-center">
-                                        <tr>
-                                            <td>Título/Fechas</td>
-                                            <td></td>
-                                        </tr>
-                                        </thead>          
+                                            <tr>
+                                                <td>Título/Fechas</td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
                                         <tbody class="text-center">
 
                                         </tbody>
@@ -178,98 +158,98 @@
                     </div>
                 </div>
                 <!--Modal Agregar--------------------------------------------------------------------->
-                 
                 <div class="modal fade text-left" id="mdlAgregar" tabindex="-1" role="dialog"
-                aria-labelledby="myModalLabel17" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel17">Agregar Avisos</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p id="id" hidden></p>
-                            <div class="row d-flex">
-                                <div class="col-12">
-                                  <!--Formulario-->
-                                  <form action="#" method="POST" id="formAgregar" enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            Título / Fechas
-                                            <input type="text" name="txtTituloFechas"
-                                                placeholder="Escribe aquí..." class="form-control txtTituloFechas"
-                                                data-validetta="required,maxLength[255]">
-                                        </div>
+                    aria-labelledby="myModalLabel17" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel17">Agregar Avisos</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="id" hidden></p>
+                                <div class="row d-flex">
+                                    <div class="col-12">
+                                        <!--Formulario-->
+                                        <form action="#" method="POST" id="formAgregar" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                                    Título / Fechas
+                                                    <input type="text" name="txtTituloFechas"
+                                                        placeholder="Escribe aquí..."
+                                                        class="form-control txtTituloFechas"
+                                                        data-validetta="required,maxLength[255]">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    Contenido
+                                                    <textarea style="resize: none;" name="txtContenido" cols="20"
+                                                        rows="4" placeholder="Escriba aquí..."
+                                                        class="form-control txtContenido" maxlength="250"
+                                                        data-validetta="required,maxLength[250]"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <input type="submit" value="Guardar" class="btn-formularios mt-3">
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            Contenido
-                                            <textarea style="resize: none;" name="txtContenido" cols="20"
-                                                rows="4" placeholder="Escriba aquí..." class="form-control txtContenido"
-                                                maxlength="250" data-validetta="required,maxLength[250]"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <input type="submit" value="Guardar" class="btn-formularios mt-3">
-                                    </div>
-                                </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-
                 <!--Modal Editar--------------------------------------------------------------------->
                 <div class="modal fade text-left" id="mdlEditar" tabindex="-1" role="dialog"
-                aria-labelledby="myModalLabel17" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel17">Editar Avisos</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p id="id" hidden></p>
-                            <div class="row d-flex">
-                                <div class="col-12">
-                                    <!--Formulario-->
-                                    <form action="#" method="POST" id="formEditar" enctype="multipart/form-data">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                                Título / Fechas
-                                                <input type="text" name="txtTituloFechas"
-                                                    placeholder="Escribe aquí..." class="form-control txtTituloFechas"
-                                                    data-validetta="required,maxLength[255]">
+                    aria-labelledby="myModalLabel17" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel17">Editar Avisos</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="id" hidden></p>
+                                <div class="row d-flex">
+                                    <div class="col-12">
+                                        <!--Formulario-->
+                                        <form action="#" method="POST" id="formEditar" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                                    Título / Fechas
+                                                    <input type="text" name="txtTituloFechas"
+                                                        placeholder="Escribe aquí..."
+                                                        class="form-control txtTituloFechas"
+                                                        data-validetta="required,maxLength[255]">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                Contenido
-                                                <textarea style="resize: none;" name="txtContenido" cols="20"
-                                                    rows="4" placeholder="Escriba aquí..." class="form-control txtContenido"
-                                                    maxlength="250" data-validetta="required,maxLength[250]"></textarea>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    Contenido
+                                                    <textarea style="resize: none;" name="txtContenido" cols="20"
+                                                        rows="4" placeholder="Escriba aquí..."
+                                                        class="form-control txtContenido" maxlength="250"
+                                                        data-validetta="required,maxLength[250]"></textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <input type="submit" value="Guardar" class="btn-formularios mt-3">
-                                        </div>
-                                    </form>
+                                            <div class="text-center">
+                                                <input type="submit" value="Guardar" class="btn-formularios mt-3">
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
-
     <!--Scripts-->
 
     <!--Jquery-->
@@ -284,12 +264,13 @@
     <!-- Toastify -->
     <script src="assets/vendors/toastify/toastify.js"></script>
     <!--DataTable-->
-    <script src="assets/lib/DataTables-1.10.25/js/jquery.dataTables.min.js"></script> 
+    <script src="assets/lib/DataTables-1.10.25/js/jquery.dataTables.min.js"></script>
     <!--Ajax-->
     <script src="assets/js/jquery/ajaxAviso.js"></script>
     <!-- Cookies -->
     <script src="assets/js/extensions/jquery.cookie.js"></script>
     <!-- Credenciales -->
-    <script src="assets/js/jquery/utils.js"></script> 
+    <script src="assets/js/jquery/utils.js"></script>
 </body>
+
 </html>

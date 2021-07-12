@@ -176,6 +176,10 @@ $(document).ready(()=>{
         $('.imgIcono').attr("src",'assets/images/iconos/loading.gif')
     });
 
+    $("#mdlAgregar").on("hidden.bs.modal", function () {
+        formAgregar.trigger('reset'); 
+    });
+
     // Usar para agregar también
     datos = (modal) => {
         let nombre = $(modal+' .txtNombre').val().trim()

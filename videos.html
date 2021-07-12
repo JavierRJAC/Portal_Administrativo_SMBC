@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/Style.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
     <!--DataTable-->
     <link rel="stylesheet" href="assets/lib/DataTables-1.10.25/css/jquery.dataTables.min.css">
     <!--Validetta-->
@@ -40,85 +39,69 @@
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                         </div>
                     </div>
-
                     <div class="d-flex justify-content-center">
                         <div class="col-lg-12 text-center logo">
                             <img src="assets/images/logo/logo.png" class="mb-2" alt="Logo">
                             <h4 style="color:#397B34;">SMBC</h4>
                         </div>
                     </div>
-
-
                 </div>
-
                 <div class="sidebar-menu">
-
                     <ul class="menu">
-
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item">
                             <a href="ods.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-card-checklist"></i>
                                 <span>ODS</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="ponentes.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-people-fill"></i>
                                 <span>Ponentes</span>
                             </a>
                         </li>
-
-                        <li class="sidebar-item active ">
+                        <li class="sidebar-item active">
                             <a href="videos.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-collection-play-fill"></i>
                                 <span>Videos</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="ponencias.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-mic-fill"></i>
                                 <span>Ponencias</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="avisos.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-chat-quote-fill"></i>
                                 <span>Avisos</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="noticias.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-newspaper"></i>
                                 <span>Noticias</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="inscripcion.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-cash"></i>
                                 <span>Inscripción</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item">
                             <a href="perfil.html" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-file-earmark-person"></i>
                                 <span>Perfil</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item mb-2 ">
                             <a href="#" id="btnSalir" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-backspace-fill"></i>
                                 <span>Salir</span>
                             </a>
                         </li>
-
-
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -131,45 +114,38 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-
-
             <!---Contenido Pagina-------------------------------------------------------------------->
             <div class="page-content">
-
                 <!---Tema y boton Agregar-------------------------------------------------------------------->
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-11 col-md-11 col-ms-11">
-
                         <div class="row d-flex justify-content-center">
-
                             <div class="col-lg-10 col-md-10 col-8 d-flex align-items-center">
                                 <h3 class="m-4">Videos</h3>
                             </div>
-
                             <div class="col-lg-2 col-md-2 col-4 d-flex text-center">
                                 <a class="botonP" data-bs-toggle="modal" data-bs-target="#mdlAgregar">
                                     <img src="assets/images/iconos/cruz.png" class="imgAgregar" alt="">
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 </div>
-                <!--DataTable---------------------------------------------------------------------->        
+                <!--DataTable---------------------------------------------------------------------->
                 <div class="row d-flex justify-content-center mt-3">
                     <div class="col-lg-11 col-md-11 col-ms-11">
                         <div class="row d-flex justify-content-center">
                             <div class="col-lg-12 col-md-12 col-12 card ">
-                                <div class="card-body">                        
+                                <div class="card-body">
                                     <table class="table table-striped" style="width:100%" id="videosTable">
                                         <thead class="text-center">
-                                        <tr>
-                                            <td>Tema</td>
-                                            <td>Área temática</td>                                        
-                                            <td>Estado</td>                                        
-                                            <td></td>
-                                        </tr>
-                                        </thead>          
+                                            <tr>
+                                                <td>Tema</td>
+                                                <td>Área temática</td>
+                                                <td>Estado</td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
                                         <tbody class="text-center">
 
                                         </tbody>
@@ -179,60 +155,61 @@
                         </div>
                     </div>
                 </div>
-
                 <!--Modal Agregar--------------------------------------------------------------------->
-
                 <div class="modal fade text-left" id="mdlAgregar" tabindex="-1" role="dialog"
-                aria-labelledby="myModalLabel17" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel17">Agregar Video</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row d-flex">
-                                <div class="col-12">
-                                    <!--Formulario-->
-                                    <form action="#" method="POST" id="formAgregar" enctype="multipart/form-data">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                                Tema
-                                                <input type="text" name="txtTema" placeholder="Escribe aquí..."
-                                                    class="form-control txtTema" data-validetta="required,maxLength[200]">
+                    aria-labelledby="myModalLabel17" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel17">Agregar Video</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row d-flex">
+                                    <div class="col-12">
+                                        <!--Formulario-->
+                                        <form action="#" method="POST" id="formAgregar" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Tema
+                                                    <input type="text" name="txtTema" placeholder="Escribe aquí..."
+                                                        class="form-control txtTema"
+                                                        data-validetta="required,maxLength[200]">
+                                                </div>
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Área Temática
+                                                    <select name="areaTematica" class="form-select areaTematica"
+                                                        data-validetta="required">
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                                Área Temática
-                                                <select name="areaTematica" class="form-select areaTematica" data-validetta="required">
-                                                </select>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Enlace
+                                                    <input type="url" name="txtEnlace" placeholder="URL aquí..."
+                                                        class="form-control txtEnlace"
+                                                        data-validetta="required,maxLength[500]">
+                                                </div>
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Ponente
+                                                    <select name="ponentes[]" multiple="multiple"
+                                                        class="multi form-control sPonentes" style="width: 100%;"
+                                                        data-validetta="minSelected[1]">
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                                Enlace
-                                                <input type="url" name="txtEnlace" placeholder="URL aquí..."
-                                                    class="form-control txtEnlace" data-validetta="required,maxLength[500]">
+                                            <div class="text-center">
+                                                <input type="submit" value="Guardar" class="btn-formularios mt-3">
                                             </div>
-                                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                                Ponente
-                                                <select name="ponentes[]" multiple="multiple"
-                                                    class="multi form-control sPonentes" style="width: 100%;" data-validetta="minSelected[1]">
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <input type="submit" value="Guardar" class="btn-formularios mt-3">
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
                 <!--Modal Editar--------------------------------------------------------------------->
                 <div class="modal fade text-left" id="mdlEditar" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel17" aria-hidden="true">
@@ -254,11 +231,13 @@
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                                     Tema
                                                     <input type="text" name="txtTema" placeholder="Escribe aquí..."
-                                                        class="form-control txtTema" data-validetta="required,maxLength[200]">
+                                                        class="form-control txtTema"
+                                                        data-validetta="required,maxLength[200]">
                                                 </div>
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                                     Área Temática
-                                                    <select name="areaTematica" class="form-select areaTematica" data-validetta="required">
+                                                    <select name="areaTematica" class="form-select areaTematica"
+                                                        data-validetta="required">
                                                     </select>
                                                 </div>
                                             </div>
@@ -271,16 +250,17 @@
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                                     Ponente
                                                     <select name="ponentes[]" multiple="multiple"
-                                                        class="multi form-control sPonentes" style="width: 100%;" data-validetta="minSelected[1]">
+                                                        class="multi form-control sPonentes" style="width: 100%;"
+                                                        data-validetta="minSelected[1]">
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     Video actual <br>
-                                                    <div class="embed-responsive"></div>
-                                                        
-                                                        <iframe class="embed-responsive-item iVideo" width="100%" src="0" frameborder="0" allowfullscreen></iframe>
+                                                    <div class="embed-responsive">
+                                                        <iframe class="embed-responsive-item iVideo" width="100%"
+                                                            frameborder="0" allowfullscreen></iframe>
                                                     </div>
                                                 </div>
                                             </div>
@@ -296,30 +276,28 @@
                 </div>
             </div>
         </div>
-
-    <!--Scripts-->
-
-    <!--Jquery-->
-    <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
-    <!--Bootstrap-->
-    <script src="assets/js/bootstrap.bundle.js"></script>
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <!--Select2-->
-    <link href="assets/lib/Select2/selects2.min.css" rel="stylesheet" />
-    <script src="assets/lib/Select2/select2.min.js"></script> 
-    <!--Validetta-->
-    <script src="assets/lib/validetta/validetta.min.js"></script>
-    <script src="assets/lib/validetta/validettaLang-es-ES.js"></script>
-    <!-- Toastify -->
-    <script src="assets/vendors/toastify/toastify.js"></script>   
-    <!--DataTable-->
-    <script src="assets/lib/DataTables-1.10.25/js/jquery.dataTables.min.js"></script> 
-    <!--Ajax-->
-    <script src="assets/js/jquery/ajaxVideos.js"></script>
-    <!-- Cookies -->
-    <script src="assets/js/extensions/jquery.cookie.js"></script>
-    <!-- Credenciales -->
-    <script src="assets/js/jquery/utils.js"></script>
+        <!--Scripts-->
+        <!--Jquery-->
+        <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+        <!--Bootstrap-->
+        <script src="assets/js/bootstrap.bundle.js"></script>
+        <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <script src="assets/js/main.js"></script>
+        <!--Select2-->
+        <link href="assets/lib/Select2/selects2.min.css" rel="stylesheet" />
+        <script src="assets/lib/Select2/select2.min.js"></script>
+        <!--Validetta-->
+        <script src="assets/lib/validetta/validetta.min.js"></script>
+        <script src="assets/lib/validetta/validettaLang-es-ES.js"></script>
+        <!-- Toastify -->
+        <script src="assets/vendors/toastify/toastify.js"></script>
+        <!--DataTable-->
+        <script src="assets/lib/DataTables-1.10.25/js/jquery.dataTables.min.js"></script>
+        <!--Ajax-->
+        <script src="assets/js/jquery/ajaxVideos.js"></script>
+        <!-- Cookies -->
+        <script src="assets/js/extensions/jquery.cookie.js"></script>
+        <!-- Credenciales -->
+        <script src="assets/js/jquery/utils.js"></script>
 </body>
 </html>

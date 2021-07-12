@@ -95,6 +95,9 @@ span{
   }
 
   /* Loader */
+  #app{
+    display: none;
+  }
 
   .loader{
     height: 100vh;
@@ -102,6 +105,7 @@ span{
     overflow: hidden;
     background-color: #2B2B2B;
     position: absolute;
+    z-index: 1001;
   }
 
   .loader>div{

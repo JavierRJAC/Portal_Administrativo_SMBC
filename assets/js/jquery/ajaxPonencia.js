@@ -176,6 +176,12 @@ $(document).ready(()=>{
         $('#mdlEditar .txtHora').timepicki('destroy') 
     });
     
+    $("#mdlAgregar").on("hidden.bs.modal", function () {
+        formAgregar.trigger('reset'); 
+        $(".areaTematica").children('option').prop("selected",false);        
+        $('.multi').select2('destroy').val('').select2();
+    });
+    
     // Usar para agregar también
     datos = (modal) => {       
         let fecha = $(modal+' .txtFecha').val().trim()

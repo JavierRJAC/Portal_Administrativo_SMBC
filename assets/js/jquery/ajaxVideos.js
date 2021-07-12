@@ -28,6 +28,7 @@ $(document).ready(()=>{
                 option += '<option value="'+v.nombre+'" data-id="'+v.id+'">'+v.nombre+'</option>'  
             })
             $('.multi').append(option)
+            $('.multi').select2()
         },
         error: function(result){
             console.log("error");
@@ -35,7 +36,7 @@ $(document).ready(()=>{
     });
     
     // Aplicar multiselect
-    $('.multi').select2();
+    // $('.multi').select2();
     
     // Acción de agregar
     var formAgregar = $('#formAgregar');
@@ -105,12 +106,11 @@ $(document).ready(()=>{
 
         //Objeto
         var data = {
-           "datos":{
-              "id":id,
-              "estado": estado
-           }
-        }
-        
+            "datos":{
+                "id":id,
+                "estado": estado
+            }
+        }        
 
         $.ajax({
             type: 'POST',
@@ -175,8 +175,7 @@ $(document).ready(()=>{
                 error: function(){
                     alerta('Ha ocurrido un error')
                 }
-            });
- 
+            }); 
         }
     })
 
@@ -190,8 +189,7 @@ $(document).ready(()=>{
             type: 'DELETE',
             url: url+'delete_recurso?id='+id,
             headers: { 'Authorization': key },
-            success: function(res){
-                
+            success: function(res){                
                 let msj = (res.data==true)?'El registro ha sido eliminado':(res.data==false)? "El registro no se puede Eliminar": 'Ha ocurrido un error';
                 $('#videosTable').DataTable().ajax.reload();
                 alerta(msj)
@@ -203,10 +201,16 @@ $(document).ready(()=>{
         
     })
 
-    // Cierre de modal
+    // Cierre de modales
     $("#mdlEditar").on("hidden.bs.modal", function () {
         $('.iVideo').attr("src",'')
         $('.areaTematica').children('option').removeAttr('selected')
+    });
+
+    $("#mdlAgregar").on("hidden.bs.modal", function () {
+        formAgregar.trigger('reset'); 
+        $(".areaTematica").children('option').prop("selected",false);        
+        $('.multi').select2('destroy').val('').select2();
     });
 
     // Usar para agregar también

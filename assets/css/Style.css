@@ -23,7 +23,6 @@ span{
 
 /*boton Agregar*/
 .botonP{
-    color:#fff;
     background-color:#397B34;
     margin: 10px;
     padding:22px;
@@ -95,9 +94,10 @@ span{
   }
 
   /* Loader */
-  #app{
-    display: none;
-  }
+  
+    #ld{
+      display: none;
+    }
 
   .loader{
     height: 100vh;

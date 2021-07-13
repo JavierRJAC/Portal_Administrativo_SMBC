@@ -38,6 +38,7 @@ $(document).ready(()=>{
 
     // DataTable mostrar objetivos
     $('#noticiasTable').DataTable({
+        "scrollX": true,
         'ajax':{
                 url: url+'noticias',
                 type: 'GET',

@@ -36,6 +36,7 @@ $(document).ready(()=>{
 
     // DataTable mostrar objetivos
     $('#ponentesTable').DataTable({
+        "scrollX": true,
         'ajax':{
                 url: url+'ponentes',
                 type: 'GET',

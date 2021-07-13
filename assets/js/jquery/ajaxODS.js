@@ -36,8 +36,10 @@ $(document).ready(()=>{
         }
     })
 
+
     // DataTable mostrar objetivos
     $('#odsTable').DataTable({
+        "scrollX": true,
         'ajax':{
                 url: url+'objetivos',
                 type: 'GET',
@@ -61,6 +63,7 @@ $(document).ready(()=>{
                                     '<a class="dropdown-item btnEliminar" href="#">Eliminar</a>'+
                                 '</div>'+
                             '</div>';
+                        
                 }
             }
         ]

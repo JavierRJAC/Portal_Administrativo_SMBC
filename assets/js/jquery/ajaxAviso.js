@@ -30,6 +30,7 @@ $(document).ready(()=>{
 
     // DataTable mostrar objetivos
     $('#avisosTable').DataTable({
+        "scrollX": true,
         'ajax':{
                 url: url+'avisos',
                 type: 'GET',

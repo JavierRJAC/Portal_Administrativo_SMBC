@@ -29,6 +29,7 @@
     <div class="loader">
         <div></div>
     </div>
+    <div class="ld">
     <div id="app">
         <!---Nenu-------------------------------------------------------------------->
         <div id="sidebar" class="active">
@@ -121,12 +122,15 @@
                     <div class="col-lg-11 col-md-11 col-ms-11">
                         <div class="row d-flex justify-content-center">
                             <div class="col-lg-10 col-md-10 col-8 d-flex align-items-center">
-                                <h3 class="m-2">Objetivos de Desarrollo Sostenible / Áreas Temáticas</h3>
+                                <h3 class="m-1">Objetivos de Desarrollo Sostenible / Áreas Temáticas</h3>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-4 d-flex text-center">
+                            <div class="col-lg-2 col-md-2 col-4">
+
+                                <div class="col-12 d-flex text-center">
                                 <a class="botonP" data-bs-toggle="modal" data-bs-target="#mdlAgregar">
                                     <img src="assets/images/iconos/cruz.png" class="imgAgregar" alt="">
                                 </a>
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -137,13 +141,13 @@
                         <div class="row d-flex justify-content-center">
                             <div class="col-lg-12 col-md-12 col-12 card ">
                                 <div class="card-body">
-                                    <table class="table table-striped" style="width:100%" id="odsTable">
+                                    <table class="display nowrap" style="width:100%" id="odsTable">
                                         <thead class="text-center">
                                             <tr>
-                                                <td>Correlativo</td>
-                                                <td>Título</td>
-                                                <td>Estado</td>
-                                                <td></td>
+                                                <th>Correlativo</th>
+                                                <th>Título</th>
+                                                <th>Estado</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-center">
@@ -259,6 +263,7 @@
             </div>
         </div>
     </div>
+</div>
     <!--Scripts-->
     <!--Jquery-->
     <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>

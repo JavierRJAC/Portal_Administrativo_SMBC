@@ -67,6 +67,7 @@ $(document).ready(()=>{
 
     // DataTable mostrar objetivos
     $('#ponenciasTable').DataTable({
+        "scrollX": true,
         'ajax':{
                 url: url+'ponencias',
                 type: 'GET',

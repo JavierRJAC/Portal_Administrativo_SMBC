@@ -67,6 +67,7 @@ $(document).ready(()=>{
 
     // DataTable mostrar objetivos
     $('#videosTable').DataTable({
+        "scrollX": true,
         'ajax':{
                 url: url+'videos',
                 type: 'GET',

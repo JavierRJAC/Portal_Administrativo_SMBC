@@ -21,6 +21,40 @@ span{
     color: #397B34;
 }
 
+/*Scrollbar*/
+
+body{
+  overflow-x: hidden;
+}
+
+.sidebar-wrapper::-webkit-scrollbar {
+	width: 7px;
+  height: 10%;
+}
+
+.sidebar-wrapper::-webkit-scrollbar-thumb {
+	background: #397B34;
+	border-radius: 5px;
+}
+
+
+.sidebar-wrapper::-webkit-scrollbar-thumb:hover{
+  background: #399d32;
+}
+
+body::-webkit-scrollbar {
+	width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: #397B34;
+	border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+  background: #399d32;
+}
+
 /*boton Agregar*/
 .botonP{
     background-color:#397B34;

@@ -8,10 +8,11 @@ $(document).ready(()=>{
             e.preventDefault();
             
             let formData = new FormData();
-            let img = $('.fileImagen').prop('files')[0] 
+            let img = $('#mdlAgregar .fileImagen').prop('files')[0] 
             let data = datos('#mdlAgregar')         
             formData.append('imagen', img); 
             formData.append('datos', JSON.stringify(data)); 
+            bloquear('#mdlAgregar')
 
             $.ajax({
                 type: 'POST',
@@ -27,6 +28,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formAgregar.trigger('reset'); 
                     $('#mdlAgregar').modal('toggle');
+                    activar('#mdlAgregar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -85,11 +87,12 @@ $(document).ready(()=>{
             e.preventDefault();            
             let formData = new FormData();
             let id = $('#id').text()
-            let img = $('.fileImagen').prop('files')[0] 
+            let img = $('#mdlEditar .fileImagen').prop('files')[0] 
             let data = datos('#mdlEditar')
             data.push(id)            
             formData.append('imagen', img); 
             formData.append('datos', JSON.stringify(data)); 
+            bloquear('#mdlEditar')
 
             $.ajax({
                 type: 'POST',
@@ -105,6 +108,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formEditar.trigger('reset'); 
                     $('#mdlEditar').modal('toggle');
+                    activar('#mdlEditar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -138,13 +142,28 @@ $(document).ready(()=>{
     // Cierre de modal
     $("#mdlEditar").on("hidden.bs.modal", function () {
         $('.imgAfiche').attr("src",'assets/images/iconos/loading.gif')
+        formEditar.trigger('reset'); 
     });
 
     $("#mdlAgregar").on("hidden.bs.modal", function () {
         formAgregar.trigger('reset'); 
     });
 
-    // Usar para agregar también
+    // Bloquear botón para guardar
+    var bloquear = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.attr('disabled','disabled')
+        b.val('Guardando...')
+    }
+
+    // Activar botón para guardar
+    var activar = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.removeAttr('disabled','')
+        b.val('Guardar')
+    }
+
+    // Captura de datos
     datos = (modal) => {
         let titulo = $(modal+' .txtTitulo').val().trim()
         let contenido = $(modal+' .txtContenido').val().trim()

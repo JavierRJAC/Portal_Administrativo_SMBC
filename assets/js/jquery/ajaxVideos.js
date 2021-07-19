@@ -16,6 +16,7 @@ $(document).ready(()=>{
             console.log("error");
         }
     });
+
     // Llenar multiselect de ponentes
     $.ajax({
         type: 'GET',
@@ -35,9 +36,6 @@ $(document).ready(()=>{
         }
     });
     
-    // Aplicar multiselect
-    // $('.multi').select2();
-    
     // Acción de agregar
     var formAgregar = $('#formAgregar');
     formAgregar.validetta({
@@ -45,7 +43,9 @@ $(document).ready(()=>{
         bubblePosition: 'bottom',
         onValid: function(e){
             e.preventDefault();
-            let data = datos('#mdlAgregar')         
+            let data = datos('#mdlAgregar')
+            bloquear('#mdlAgregar')
+
             $.ajax({
                 type: 'POST',
                 url: url+'add_video',
@@ -57,6 +57,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formAgregar.trigger('reset'); 
                     $('#mdlAgregar').modal('toggle');
+                    activar('#mdlAgregar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -102,8 +103,7 @@ $(document).ready(()=>{
         var tr = $(this).closest("tr");
         var data = $('#videosTable').DataTable().row(tr).data();
         var id = data.id;
-        var estado = (data.estado === "Visible")? 1: 0;
-        
+        var estado = (data.estado === "Visible")? 1: 0;        
 
         //Objeto
         var data = {
@@ -160,6 +160,7 @@ $(document).ready(()=>{
             let id = $('#id').text()
             let data = datos('#mdlEditar')
             data.datos['id'] = id 
+            bloquear('#mdlEditar')
 
             $.ajax({
                 type: 'POST',
@@ -172,6 +173,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formEditar.trigger('reset'); 
                     $('#mdlEditar').modal('toggle');
+                    activar('#mdlEditar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -180,8 +182,8 @@ $(document).ready(()=>{
         }
     })
 
-     // Eliminar registro
-     $('body').on('click', '.btnEliminar', function(){
+    // Eliminar registro
+    $('body').on('click', '.btnEliminar', function(){
         var tr = $(this).closest("tr");
         var data = $('#videosTable').DataTable().row(tr).data();
         var id = data.id;
@@ -206,6 +208,7 @@ $(document).ready(()=>{
     $("#mdlEditar").on("hidden.bs.modal", function () {
         $('.iVideo').attr("src",'')
         $('.areaTematica').children('option').removeAttr('selected')
+        formEditar.trigger('reset'); 
     });
 
     $("#mdlAgregar").on("hidden.bs.modal", function () {
@@ -214,7 +217,21 @@ $(document).ready(()=>{
         $('.multi').select2('destroy').val('').select2();
     });
 
-    // Usar para agregar también
+    // Bloquear botón para guardar
+    var bloquear = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.attr('disabled','disabled')
+        b.val('Guardando...')
+    }
+
+    // Activar botón para guardar
+    var activar = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.removeAttr('disabled','')
+        b.val('Guardar')
+    }
+
+    // Captura de datos
     datos = (modal) => {       
         let tema = $(modal+' .txtTema').val().trim()
         let ods = $(modal+' .areaTematica').children('option:selected').val()

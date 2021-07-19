@@ -45,6 +45,7 @@ $(document).ready(()=>{
         onValid: function(e){
             e.preventDefault();
             let data = datos('#mdlAgregar')
+            bloquear('#mdlAgregar')
 
             $.ajax({
                 type: 'POST',
@@ -57,6 +58,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formAgregar.trigger('reset'); 
                     $('#mdlAgregar').modal('toggle');
+                    activar('#mdlAgregar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -125,6 +127,7 @@ $(document).ready(()=>{
             let id = $('#id').text()
             let data = datos('#mdlEditar')
             data.datos['id'] = id 
+            bloquear('#mdlEditar')
 
             $.ajax({
                 type: 'POST',
@@ -137,6 +140,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formEditar.trigger('reset'); 
                     $('#mdlEditar').modal('toggle');
+                    activar('#mdlEditar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -146,9 +150,8 @@ $(document).ready(()=>{
     })
 
 
-     // Eliminar registro
-
-     $('body').on('click', '.btnEliminar', function(){
+    // Eliminar registro
+    $('body').on('click', '.btnEliminar', function(){
         var tr = $(this).closest("tr");
         var data = $('#ponenciasTable').DataTable().row(tr).data();
         var id = data.id;
@@ -175,6 +178,7 @@ $(document).ready(()=>{
         $('#mdlEditar .areaTematica').children('option').removeAttr('selected')
         $('#mdlEditar .txtHora').val('')
         $('#mdlEditar .txtHora').timepicki('destroy') 
+        formEditar.trigger('reset'); 
     });
     
     $("#mdlAgregar").on("hidden.bs.modal", function () {
@@ -183,7 +187,21 @@ $(document).ready(()=>{
         $('.multi').select2('destroy').val('').select2();
     });
     
-    // Usar para agregar también
+    // Bloquear botón para guardar
+    var bloquear = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.attr('disabled','disabled')
+        b.val('Guardando...')
+    }
+
+    // Activar botón para guardar
+    var activar = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.removeAttr('disabled','')
+        b.val('Guardar')
+    }
+
+    // Captura de datos
     datos = (modal) => {       
         let fecha = $(modal+' .txtFecha').val().trim()
         let hora = $(modal+' .txtHora').val().trim()

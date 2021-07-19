@@ -7,10 +7,12 @@ $(document).ready(()=>{
         onValid: function(e){
             e.preventDefault();         
             let formData = new FormData();
-            let img = $('.fileIcono').prop('files')[0] 
+            let img = $('#mdlAgregar .fileIcono').prop('files')[0] 
             let data = datos('#mdlAgregar')         
             formData.append('imagen', img); 
             formData.append('datos', JSON.stringify(data)); 
+            
+            bloquear('#mdlAgregar')
 
             $.ajax({
                 type: 'POST',
@@ -26,6 +28,8 @@ $(document).ready(()=>{
                     alerta(msj)
                     formAgregar.trigger('reset'); 
                     $('#mdlAgregar').modal('toggle');
+
+                    activar('#mdlAgregar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -104,7 +108,7 @@ $(document).ready(()=>{
     // Acción de editar
     $('body').on('click', '.btnEditar', function(){
         var tr = $(this).closest("tr");
-        var data = $('#odsTable').DataTable().row(tr).data();
+        var data = $('#odsTable').DataTable().row(tr).data();       
         $('#mdlEditar #id').text(data.id)
         $('#mdlEditar .txtTitulo').val(data.titulo)
         $('#mdlEditar .txtDescripcion').val(data.descripcion)
@@ -122,11 +126,13 @@ $(document).ready(()=>{
             e.preventDefault();            
             let formData = new FormData();
             let id = $('#id').text()
-            let img = $('.fileIcono').prop('files')[0] 
+            let img = $('#mdlEditar .fileIcono').prop('files')[0] 
             let data = datos('#mdlEditar')
             data.push(id)            
             formData.append('imagen', img); 
-            formData.append('datos', JSON.stringify(data)); 
+            formData.append('datos', JSON.stringify(data));  
+
+            bloquear('#mdlEditar')
 
             $.ajax({
                 type: 'POST',
@@ -142,6 +148,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formEditar.trigger('reset'); 
                     $('#mdlEditar').modal('toggle');
+                    activar('#mdlEditar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -149,7 +156,6 @@ $(document).ready(()=>{
             });
         }
     })
-
 
      // Eliminar registro
     $('body').on('click', '.btnEliminar', function(){
@@ -171,11 +177,26 @@ $(document).ready(()=>{
             }
         })
         
-    })   
+    })  
+    
+    // Bloquear botón para guardar
+    var bloquear = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.attr('disabled','disabled')
+        b.val('Guardando...')
+    }
+
+    // Activar botón para guardar
+    var activar = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.removeAttr('disabled','')
+        b.val('Guardar')
+    }    
 
     // Cierre de modal
     $("#mdlEditar").on("hidden.bs.modal", function () {
         $('.imgIcono').attr("src",'assets/images/iconos/loading.gif')
+        formEditar.trigger('reset'); 
     });
 
     $("#mdlAgregar").on("hidden.bs.modal", function () {

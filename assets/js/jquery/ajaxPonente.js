@@ -7,10 +7,11 @@ $(document).ready(()=>{
         onValid: function(e){
             e.preventDefault();
             let formData = new FormData();
-            let img = $('.fileImg').prop('files')[0] 
+            let img = $('#mdlAgregar .fileImg').prop('files')[0] 
             let data = datos('#mdlAgregar')         
             formData.append('imagen', img); 
             formData.append('datos', JSON.stringify(data)); 
+            bloquear('#mdlAgregar')
 
             $.ajax({
                 type: 'POST',
@@ -26,6 +27,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formAgregar.trigger('reset'); 
                     $('#mdlAgregar').modal('toggle');
+                    activar('#mdlAgregar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -75,10 +77,10 @@ $(document).ready(()=>{
 
         //Objeto
         var data = {
-           "datos":{
-              "id":id,
-              "estado": estado
-           }
+            "datos":{
+                "id":id,
+                "estado": estado
+            }
         }
         
 
@@ -98,8 +100,7 @@ $(document).ready(()=>{
         })
     })
 
-    // Acción de editar
-    
+    // Acción de editar    
     $('body').on('click', '.btnEditar', function(){
         var tr = $(this).closest("tr")
         var data = $('#ponentesTable').DataTable().row(tr).data()
@@ -121,11 +122,13 @@ $(document).ready(()=>{
             e.preventDefault();            
             let formData = new FormData();            
             let id = $('#id').text()
-            let img = $('.fileImg').prop('files')[0] 
+            let img = $('#mdlEditar .fileImg').prop('files')[0] 
             let data = datos('#mdlEditar')
             data.push(id)            
             formData.append('imagen', img); 
             formData.append('datos', JSON.stringify(data)); 
+            bloquear('#mdlEditar')
+
             $.ajax({
                 type: 'POST',
                 url: url+'edit_ponente',
@@ -140,6 +143,7 @@ $(document).ready(()=>{
                     alerta(msj)
                     formEditar.trigger('reset'); 
                     $('#mdlEditar').modal('toggle');
+                    activar('#mdlEditar')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -150,8 +154,7 @@ $(document).ready(()=>{
 
 
      // Eliminar registro
-
-     $('body').on('click', '.btnEliminar', function(){
+    $('body').on('click', '.btnEliminar', function(){
         var tr = $(this).closest("tr");
         var data = $('#ponentesTable').DataTable().row(tr).data();
         var id = data.id;
@@ -175,13 +178,28 @@ $(document).ready(()=>{
     // Cierre de modal
     $("#mdlEditar").on("hidden.bs.modal", function () {
         $('.imgIcono').attr("src",'assets/images/iconos/loading.gif')
+        formEditar.trigger('reset'); 
     });
 
     $("#mdlAgregar").on("hidden.bs.modal", function () {
         formAgregar.trigger('reset'); 
     });
 
-    // Usar para agregar también
+    // Bloquear botón para guardar
+    var bloquear = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.attr('disabled','disabled')
+        b.val('Guardando...')
+    }
+
+    // Activar botón para guardar
+    var activar = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.removeAttr('disabled','')
+        b.val('Guardar')
+    }
+
+    // Captura de datos
     datos = (modal) => {
         let nombre = $(modal+' .txtNombre').val().trim()
         let cargo = $(modal+' .txtCargo').val().trim()

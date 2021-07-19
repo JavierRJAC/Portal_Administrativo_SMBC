@@ -43,7 +43,8 @@ $(document).ready(()=>{
         realTime: true,
         onValid: function(e){
             e.preventDefault();
-            let data = datos()                      
+            let data = datos() 
+            bloquear('#formInscripcion')                     
             $.ajax({
                 type: 'POST',
                 url: url+'edit_inscripcion',
@@ -52,6 +53,7 @@ $(document).ready(()=>{
                 success: function(res){
                     let msj = (res.data==true)?'El registro ha sido actualizado':'Ha ocurrido un error';
                     alerta(msj)
+                    activar('#formInscripcion')
                 },
                 error: function(){
                     alerta('Ha ocurrido un error')
@@ -60,6 +62,21 @@ $(document).ready(()=>{
         }
     })
 
+    // Bloquear botón para guardar
+    var bloquear = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.attr('disabled','disabled')
+        b.val('Guardando...')
+    }
+
+    // Activar botón para guardar
+    var activar = (form)=>{
+        let b = $(form+' .btn-formularios')
+        b.removeAttr('disabled','')
+        b.val('Guardar')
+    }
+
+    // Captura de datos
     datos = () => {  
         let regular = {
             "fecha": $('.txtFechaR').val().trim(),

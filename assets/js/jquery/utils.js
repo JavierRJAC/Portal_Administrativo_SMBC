@@ -1,6 +1,7 @@
 // Credenciales API
 // var url = 'http://localhost/smbc/public/'
 var url = 'https://smycode.com/smbc/public/'
+// var url = 'http://c2270582.ferozo.com/smbc/public/'
 var key = 'YWRtaW5TTUJDOlNNQkMyMDIx'
 
 // Función para alertas

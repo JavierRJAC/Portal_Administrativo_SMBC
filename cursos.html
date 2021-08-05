@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ponentes</title>
+    <title>Logos</title>
     <link rel="shortcut icon" href="assets/images/logo/logo.png">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,13 +48,13 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-item">
+                        <li class="sidebar-item ">
                             <a href="ods.html" class='sidebar-link'>
                                 <i class="bi bi-card-checklist"></i>
                                 <span>ODS</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a href="ponentes.html" class='sidebar-link'>
                                 <i class="bi bi-people-fill"></i>
                                 <span>Ponentes</span>
@@ -96,6 +96,7 @@
                                 <span>Perfil</span>
                             </a>
                         </li>
+                         
                         <li class="sidebar-item">
                             <a href="logos.html" class='sidebar-link'>
                                 <i class="bi bi-images"></i>
@@ -103,12 +104,13 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item">
+                        <li class="sidebar-item active">
                             <a href="cursos.html" class='sidebar-link'>
                                 <i class="bi bi-brightness-alt-high-fill"></i>
                                 <span>Cursos/Talleres</span>
                             </a>
                         </li>
+
                         <li class="sidebar-item mb-2 ">
                             <a href="#" id="btnSalir" class='sidebar-link'>
                                 <i class="bi bi-backspace-fill"></i>
@@ -134,30 +136,33 @@
                     <div class="col-lg-11 col-md-11 col-ms-11">
                         <div class="row d-flex justify-content-center">
                             <div class="col-lg-10 col-md-10 col-8 d-flex align-items-center">
-                                <h3 class="m-4">Ponentes</h3>
+                                <h3 class="m-1">Cursos y Talleres</h3>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-4 d-flex text-center">
+                            <div class="col-lg-2 col-md-2 col-4">
+
+                                <div class="col-12 d-flex text-center">
                                 <a class="botonP" data-bs-toggle="modal" data-bs-target="#mdlAgregar">
                                     <img src="assets/images/iconos/cruz.png" class="imgAgregar" alt="">
                                 </a>
+                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--DataTable---------------------------------------------------------------------->        
+                <!--DataTable---------------------------------------------------------------------->
                 <div class="row d-flex justify-content-center mt-3">
                     <div class="col-lg-11 col-md-11 col-ms-11">
                         <div class="row d-flex justify-content-center">
                             <div class="col-lg-12 col-md-12 col-12 card ">
-                                <div class="card-body">                        
-                                    <table class="display nowrap" style="width:100%" id="ponentesTable">
+                                <div class="card-body">
+                                    <table class="display nowrap" style="width:100%" id="cursosTable">
                                         <thead class="text-center">
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Estado</th>                                        
-                                            <th>Acciones</th>
-                                        </tr>
-                                        </thead>          
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Título</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
                                         <tbody class="text-center">
 
                                         </tbody>
@@ -173,38 +178,37 @@
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel17">Agregar Ponente</h4>
+                                <h4 class="modal-title" id="myModalLabel17">Agregar Taller o Curso</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="row d-flex">
+                                <div class="row d-flex justify-content-center">
                                     <div class="col-12">
                                         <!--Formulario-->
-                                        <form action="#" method="POST" id="formAgregar" enctype="multipart/form-data">
+                                        <form method="POST" id="formAgregar" enctype="multipart/form-data">
                                             <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                                    Nombre
-                                                    <input type="text" name="txtNombre" placeholder="Escribe aquí..." class="form-control txtNombre" data-validetta="required,maxLength[200]">
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Fecha
+                                                    <input type="date" name="txtfecha" class="form-control txtFecha" data-validetta="required">
                                                 </div>
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Título
+                                                    <input type="text" name="txtTitulo" placeholder="Escribe aquí..."
+                                                        class="form-control txtTitulo"
+                                                        data-validetta="required,maxLength[100]">
+                                                </div>
+                                                
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
-                                                    Cargo
-                                                    <input type="text" name="txtCargo" placeholder="Escribe aquí..." class="form-control txtCargo" data-validetta="required,maxLength[60]">
-                                                </div>
-                                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                                    Foto
-                                                    <input type="file" name="fileImg" class="form-control fileImg" data-validetta="required" accept="image/*">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
                                                     Descripción
-                                                    <textarea style="resize: none;" name="txtDescripcion" cols="20"
-                                                        rows="5" placeholder="Escriba aquí..." class="form-control txtDescripcion"
-                                                        data-validetta="required,maxLength[300]"></textarea>
+                                                    <textarea name="txtDescripcion" id="" cols="50" rows="5" placeholder="Escriba aquí..." style="resize: none;" class="form-control txtDescripcion" data-validetta="required,maxLength[300]"></textarea>
+                                                </div>
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Enlace Zoom
+                                                    <textarea name="txtZoom" placeholder="URL aquí..." style="resize: none;" class="form-control txtZoom" cols="20" rows="5" data-validetta="required,maxLength[500]"></textarea>
                                                 </div>
                                             </div>
                                             <div class="text-center">
@@ -223,43 +227,38 @@
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel17">Editar Ponente</h4>
+                                <h4 class="modal-title" id="myModalLabel17">Editar ODS</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="row d-flex">
+                                <div class="row d-flex justify-content-center">
                                     <div class="col-12">
                                         <!--Formulario-->
                                         <form method="POST" id="formEditar" enctype="multipart/form-data">
                                             <p id="id" hidden></p>
                                             <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                                    Nombre
-                                                    <input type="text" name="txtNombre" placeholder="Escribe aquí..." class="form-control txtNombre" data-validetta="required,maxLength[200]">
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Fecha
+                                                    <input type="date" name="txtfecha" class="form-control txtFecha" data-validetta="required">
                                                 </div>
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Título
+                                                    <input type="text" name="txtTitulo" placeholder="Escribe aquí..."
+                                                        class="form-control txtTitulo"
+                                                        data-validetta="required,maxLength[100]">
+                                                </div>
+                                                
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-12 col-sm-12">
-                                                    Cargo
-                                                    <input type="text" name="txtCargo" placeholder="Escribe aquí..." class="form-control txtCargo" data-validetta="required,maxLength[60]">
-                                                </div>
-                                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                                    Foto
-                                                    <input type="file" name="fileImg" class="form-control fileImg" accept="image/*">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-12">
                                                     Descripción
-                                                    <textarea style="resize: none;" name="txtDescripcion" cols="20"
-                                                        rows="5" placeholder="Escriba aquí..." class="form-control txtDescripcion"
-                                                        data-validetta="required,maxLength[300]"></textarea>
+                                                    <textarea name="txtDescripcion"  cols="50" rows="5" placeholder="Escriba aquí..." style="resize: none;" class="form-control txtDescripcion" data-validetta="required,maxLength[300]"></textarea>
                                                 </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                                    Foto actual <br>
-                                                    <img class="img-responsive imgIcono" src="assets/images/iconos/loading.gif" style="height: 134px !important;">
+                                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                                    Enlace Zoom
+                                                    <textarea name="txtZoom" placeholder="URL aquí..." style="resize: none;" class="form-control txtZoom" cols="20" rows="5" data-validetta="required,maxLength[500]"></textarea>
                                                 </div>
                                             </div>
                                             <div class="text-center">
@@ -286,14 +285,14 @@
     <script src="assets/lib/validetta/validetta.min.js"></script>
     <script src="assets/lib/validetta/validettaLang-es-ES.js"></script>
     <!-- Toastify -->
-    <script src="assets/vendors/toastify/toastify.js"></script>    
+    <script src="assets/vendors/toastify/toastify.js"></script>
     <!--DataTable-->
-    <script src="assets/lib/DataTables-1.10.25/js/jquery.dataTables.min.js"></script> 
+    <script src="assets/lib/DataTables-1.10.25/js/jquery.dataTables.min.js"></script>
     <!--Ajax-->
-    <script src="assets/js/jquery/ajaxPonente.js"></script>
+    <script src="assets/js/jquery/ajaxCursos.js"></script>
     <!-- Cookies -->
     <script src="assets/js/extensions/jquery.cookie.js"></script>
     <!-- Credenciales -->
-    <script src="assets/js/jquery/utils.js"></script> 
+    <script src="assets/js/jquery/utils.js"></script>
 </body>
 </html>

@@ -62,7 +62,7 @@ $(document).ready(()=>{
     $('body').on('click', '.btnEditar', function(){
         var tr = $(this).closest("tr");
         var data = $('#avisosTable').DataTable().row(tr).data();
-        $('#mdlEditar #id').text(data.id)
+        $('#id').text(data.id)
         $('#mdlEditar .txtTituloFechas').val(data.titulo)      
         $('#mdlEditar .txtContenido').val(data.contenido)  
     })

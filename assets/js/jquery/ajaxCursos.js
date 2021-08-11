@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-
+    
     // Acción de agregar
     var formAgregar = $('#formAgregar');
     formAgregar.validetta({
@@ -41,6 +41,7 @@ $(document).ready(()=>{
         'columns': [
             { 'data': 'fecha' },
             { 'data': 'titulo' },
+            { 'data': 'encargados' },
             {
                 render: function (data, type, row) {
                     return '<div class="dropdown">'+
@@ -64,11 +65,18 @@ $(document).ready(()=>{
         var tr = $(this).closest("tr");
         var data = $('#cursosTable').DataTable().row(tr).data();
         let fecha = data.fecha.split('/')
+        let hora = data.hora.split(':')
+        let h =  hora[0];
+        let m = hora[1].split(' ')
         $('#mdlEditar #id').text(data.id)
         $('#mdlEditar .txtFecha').val(fecha[2]+'-'+fecha[1]+'-'+fecha[0])
+        $('#mdlEditar .txtHora').val(data.hora)
+        $('#mdlEditar .txtHora').timepicki({ start_time: [h, m[0], m[1]] })   
         $('#mdlEditar .txtTitulo').val(data.titulo)
         $('#mdlEditar .txtZoom').val(data.enlace)
+        $('#mdlEditar .txtCorreo').val(data.correo)
         $('#mdlEditar .txtDescripcion').val(data.descripcion)
+        $('#mdlEditar .txtEncargados').val(data.encargados)
     })
 
     
@@ -158,21 +166,45 @@ $(document).ready(()=>{
     // Captura de datos
     datos = (modal) => {       
         let fecha = $(modal+' .txtFecha').val().trim()
+        let hora = $(modal+' .txtHora').val().trim()
         let titulo = $(modal+' .txtTitulo').val().trim()
         let descripcion = $(modal+' .txtDescripcion').val().trim()
+        let correo = $(modal+' .txtCorreo').val().trim()
         let enlace = $(modal+' .txtZoom').val().trim()
+        let encargados = $(modal+' .txtEncargados').val().trim()
+        
         
         let data = {
             "datos":{
+                "fecha": fecha,
+                "hora": convertirHora(hora),
                 "titulo": titulo,
                 "descripcion": descripcion,
+                "encargados": encargados,
+                "correo": correo,
                 "enlace": enlace,
-                "fecha": fecha,
+                
             }
         }         
 
         return data;
     }
+
+     // Convertir hora
+     const convertirHora = (hora) => {
+        const [time, modifier] = hora.split(' ');        
+        let [hours, minutes] = time.split(':'); 
+        
+        if (hours === '12') {
+            hours = '00';
+        }
+        
+        if (modifier === 'PM') {
+            hours = parseInt(hours, 10) + 12;
+        }
+        
+        return `${hours}:${minutes}`;
+    }; 
 
 
 

@@ -77,7 +77,7 @@ $(document).ready(()=>{
         var data = $('#logosTable').DataTable().row(tr).data();       
         $('#mdlEditar #id').text(data.id)
         $('#mdlEditar .txtTitulo').val(data.titulo)
-        let categoria = (data.categoria == "Organizador")? "0": "1";
+        let categoria = (data.categoria == "Patrocinador")? "0": "1";
         $('#mdlEditar .sCategoria option[value="'+categoria+'"]').attr('selected', 'selected')
         setTimeout(() => {
             $('.imgLogo').attr("src",(data.logo=='')?'assets/images/iconos/noImg.jpg':data.logo)

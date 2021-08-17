@@ -26,11 +26,7 @@ $(document).ready(()=>{
             $('.txtCuentaN').val(tab4.cuenta)
             $('.txtNumeroN').val(tab4.numero)
             $('.txtDireccionN').val(tab4.direccion)
-            $('.txtCodigoN').val(tab4.codbanco)
-            let tab5 = res.data[4]
-            $('.txtBancoA').val(tab5.banco)
-            $('.txtCuentaA').val(tab5.cuenta)
-            $('.txtNumeroA').val(tab5.numero)            
+            $('.txtCodigoN').val(tab4.codbanco)           
         },
         error: function(){
             alerta('No se puede cargar la información')
@@ -106,13 +102,7 @@ $(document).ready(()=>{
             "direccion": $('.txtDireccionN').val().trim(),
             "cuenta": $('.txtCuentaN').val().trim(),
             "numero": $('.txtNumeroN').val().trim()
-        }  
-
-        let alterna = {
-            "banco": $('.txtBancoA').val().trim(),
-            "cuenta": $('.txtCuentaA').val().trim(),
-            "numero":  $('.txtNumeroA').val().trim()
-        }
+        } 
         
         let data = {
             "datos":{
@@ -122,8 +112,7 @@ $(document).ready(()=>{
                 ],
                 "cuentas":[
                     residentes,
-                    noResidentes,
-                    alterna
+                    noResidentes
                 ]
             }
         }     

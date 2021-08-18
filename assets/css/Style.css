@@ -162,3 +162,7 @@ body::-webkit-scrollbar-thumb:hover{
       transform: rotate(360deg);
     }
   }
+  
+  .dataTables_scrollBody{
+    overflow: visible !important;
+  }
